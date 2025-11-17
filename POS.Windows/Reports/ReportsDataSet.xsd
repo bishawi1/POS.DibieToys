@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ReportsDataSet" targetNamespace="http://tempuri.org/ReportsDataSet.xsd" xmlns:mstns="http://tempuri.org/ReportsDataSet.xsd" xmlns="http://tempuri.org/ReportsDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ReportsDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="ReportsDataSet" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ReportsDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ItemLabel" msprop:Generator_RowEvHandlerName="ItemLabelRowChangeEventHandler" msprop:Generator_RowDeletedName="ItemLabelRowDeleted" msprop:Generator_RowDeletingName="ItemLabelRowDeleting" msprop:Generator_RowEvArgName="ItemLabelRowChangeEvent" msprop:Generator_TablePropName="ItemLabel" msprop:Generator_RowChangedName="ItemLabelRowChanged" msprop:Generator_UserTableName="ItemLabel" msprop:Generator_RowChangingName="ItemLabelRowChanging" msprop:Generator_RowClassName="ItemLabelRow" msprop:Generator_TableClassName="ItemLabelDataTable" msprop:Generator_TableVarName="tableItemLabel">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Item_Unit_ID" msprop:Generator_ColumnPropNameInTable="Item_Unit_IDColumn" msprop:Generator_ColumnPropNameInRow="Item_Unit_ID" msprop:Generator_UserColumnName="Item_Unit_ID" msprop:Generator_ColumnVarNameInTable="columnItem_Unit_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="Item_Desc" msprop:Generator_ColumnPropNameInTable="Item_DescColumn" msprop:Generator_ColumnPropNameInRow="Item_Desc" msprop:Generator_UserColumnName="Item_Desc" msprop:Generator_ColumnVarNameInTable="columnItem_Desc" type="xs:string" minOccurs="0" />
+              <xs:element name="Barcode" msprop:Generator_ColumnPropNameInTable="BarcodeColumn" msprop:Generator_ColumnPropNameInRow="Barcode" msprop:Generator_UserColumnName="Barcode" msprop:Generator_ColumnVarNameInTable="columnBarcode" type="xs:string" minOccurs="0" />
+              <xs:element name="Item_Unit_Price" msprop:Generator_ColumnPropNameInTable="Item_Unit_PriceColumn" msprop:Generator_ColumnPropNameInRow="Item_Unit_Price" msprop:Generator_UserColumnName="Item_Unit_Price" msprop:Generator_ColumnVarNameInTable="columnItem_Unit_Price" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Barcode_Image_Url" msdata:Caption="Barcode_Image_Path" msprop:Generator_ColumnPropNameInTable="Barcode_Image_UrlColumn" msprop:Generator_ColumnPropNameInRow="Barcode_Image_Url" msprop:Generator_UserColumnName="Barcode_Image_Url" msprop:Generator_ColumnVarNameInTable="columnBarcode_Image_Url" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
