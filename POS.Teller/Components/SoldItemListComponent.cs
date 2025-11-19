@@ -6,6 +6,7 @@ using POS.Shared;
 using POS.Shared.DTOs;
 using POS.Shared.Models;
 using POS.Shared.ViewModels;
+using POS.Teller.ViewModel;
 using POS.Windows.Components.ViewModels;
 using POS.Windows.Forms;
 using POS.Windows.Reports;
@@ -57,6 +58,8 @@ namespace POS.Windows.Components
         private bool newINvoice = true;
         public event EventHandler OnInvoiceCancelClick;
         public event EventHandler OnInvoiceSaved;
+        public event EventHandler OnItemChanged;
+        public event EventHandler OnPayWayChanged;
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool FirstInvoice { get; set; } = true;
@@ -144,8 +147,25 @@ namespace POS.Windows.Components
             grdItemList.DataSource = moDataTable;
             var uniqueObjects = moDataTable.AsEnumerable().Select(x => x.Field<Int64>("Item_ID")).Distinct().ToList();
             lblItemCount.Text = uniqueObjects.Count().ToString();
+            //// Fix for CS7036: Ensure the required parameters 'sender' and 'EventArgs' are passed when invoking the event.
+            //if (OnItemChanged != null)
+            //{
+            //    OnItemChanged.Invoke(this, EventArgs.Empty); // Pass 'this' as sender and 'EventArgs.Empty' as the event arguments.
+            //}
+
+            // Fix for IDE1005: Simplify delegate invocation.
             txtBarcode.Focus();
             grdItemList.CurrentCell = grdItemList.Rows[grdItemList.Rows.Count - 1].Cells[colItem_Desc.Name];
+            OnItemChanged?.Invoke(this, EventArgs.Empty); // This is the simplified version of the above code.
+
+        }
+        public decimal getTotalAmount()
+        {
+            return Convert.ToDecimal(lblTotalAmount.Text);
+        }
+        public decimal getNetAmount()
+        {
+            return Convert.ToDecimal(lblNetAmount.Text);
         }
         private decimal calcTotalAmount()
         {
@@ -178,6 +198,8 @@ namespace POS.Windows.Components
             lblDiscount.Text = discount.ToString();
 
             calcDiscountPercent();
+
+
             return totalAmount;
         }
 
@@ -244,6 +266,7 @@ namespace POS.Windows.Components
                 txtBarcode.Focus();
 
             }
+
         }
 
         private void txtBarcode_TextChanged(object sender, EventArgs e)
@@ -299,6 +322,7 @@ namespace POS.Windows.Components
                     grdItemList.CurrentRow.Cells[colQnt.Name].Value = Convert.ToInt32(grdItemList.CurrentRow.Cells[colQnt.Name].Value) + 1;
                     grdItemList.Update();
                     reCalculateItemPrice();
+                    OnItemChanged?.Invoke(this, EventArgs.Empty); // This is the simplified version of the above code.
                 }
 
             }
@@ -314,6 +338,7 @@ namespace POS.Windows.Components
                         grdItemList.Update();
                         reCalculateItemPrice();
                         grdItemList.CurrentCell = null;
+                        OnItemChanged?.Invoke(this, EventArgs.Empty); // This is the simplified version of the above code.
                     }
                 }
             }
@@ -326,6 +351,7 @@ namespace POS.Windows.Components
                     grdItemList.CurrentRow.Cells[colItem_Unit_Price.Name].Value = Convert.ToDecimal(frm.Result);
                     grdItemList.Update();
                     reCalculateItemPrice();
+                    OnItemChanged?.Invoke(this, EventArgs.Empty); // This is the simplified version of the above code.
                 }
             }
             else if (e.ColumnIndex == colQnt.Index)
@@ -337,6 +363,7 @@ namespace POS.Windows.Components
                     grdItemList.CurrentRow.Cells[colQnt.Name].Value = Convert.ToDecimal(frm.Result);
                     grdItemList.Update();
                     reCalculateItemPrice();
+                    OnItemChanged?.Invoke(this, EventArgs.Empty); // This is the simplified version of the above code.
                 }
             }
             else if (grdItemList.Columns[e.ColumnIndex].Name == "colUndo")// colDescrease.Index
@@ -346,6 +373,7 @@ namespace POS.Windows.Components
                 grdItemList.Rows.RemoveAt(e.RowIndex);
                 grdItemList.Update();
                 reCalculateItemPrice();
+                OnItemChanged?.Invoke(this, EventArgs.Empty); // This is the simplified version of the above code.
             }
         }
         public void clearScreen()
@@ -608,6 +636,7 @@ namespace POS.Windows.Components
                 lblDiscount.Text = Convert.ToString(frm.Result);
                 calcDiscountPercent();
                 calcTotalAmount();
+                OnItemChanged?.Invoke(this, EventArgs.Empty); // This is the simplified version of the above code.
             }
         }
 
@@ -784,8 +813,13 @@ namespace POS.Windows.Components
                 {
                     // Get the image of the selected menu item
                     Image selectedImage = selectedItem.Image;
-
                     // Do something with the image (e.g., set it to a button)
+                    PayWayViewModel pay = new PayWayViewModel()
+                    {
+                        PayWayID = Convert.ToByte(PayWayEnum.Visa),
+                        Amount = frm.Amount
+                    };
+                    OnPayWayChanged?.Invoke( pay , EventArgs.Empty); // This is the simplified version of the above code.
                     btnPayWay.Image = selectedImage;
                     payWay = PayWayEnum.Visa;
                 }
@@ -925,6 +959,8 @@ namespace POS.Windows.Components
                 grdItemList.CurrentRow.Cells[colQnt.Name].Value = Convert.ToDecimal(frm.Result);
                 grdItemList.Update();
                 reCalculateItemPrice();
+                OnItemChanged?.Invoke(this, EventArgs.Empty); // This is the simplified version of the above code.
+
             }
 
         }
@@ -940,6 +976,7 @@ namespace POS.Windows.Components
                 lblDiscount.Text=discountAmount.ToString("0.00");
                 calcDiscountPercent();
                 calcTotalAmount();
+                OnItemChanged?.Invoke(this, EventArgs.Empty); // This is the simplified version of the above code.
             }
         }
     }

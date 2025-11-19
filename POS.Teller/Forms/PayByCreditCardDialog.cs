@@ -15,6 +15,8 @@ namespace POS.Windows.Forms
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool Accepted { get; set; } = false;
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public decimal Amount { get; set; }
         public PayByCreditCardDialog()
         {
             InitializeComponent();
@@ -30,6 +32,17 @@ namespace POS.Windows.Forms
         {
             Accepted = false;
             this.Hide();
+        }
+
+        private void btnDiscountPercent_Click(object sender, EventArgs e)
+        {
+            NumericKeyBoardDialog frm = new NumericKeyBoardDialog();
+            frm.ShowDialog();
+            if (frm.Accepted)
+            {
+                Amount = Convert.ToDecimal(frm.Result);
+                lblAmount.Text = Amount.ToString("0.00");
+            }
         }
     }
 }

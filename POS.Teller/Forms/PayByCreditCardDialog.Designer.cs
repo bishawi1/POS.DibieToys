@@ -36,35 +36,44 @@
             imageList1 = new ImageList(components);
             btnCancel = new Button();
             btnOK = new Button();
+            label2 = new Label();
+            lblAmount = new Label();
+            btnDiscountPercent = new PictureBox();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)btnDiscountPercent).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(lblAmount);
+            panel1.Controls.Add(btnDiscountPercent);
+            panel1.Controls.Add(label2);
             panel1.Controls.Add(txtNotes);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(12, 12);
+            panel1.Location = new Point(10, 9);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(543, 186);
+            panel1.Size = new Size(475, 200);
             panel1.TabIndex = 3;
             // 
             // txtNotes
             // 
             txtNotes.Font = new Font("Segoe UI", 12F);
-            txtNotes.Location = new Point(16, 15);
+            txtNotes.Location = new Point(10, 67);
+            txtNotes.Margin = new Padding(3, 2, 3, 2);
             txtNotes.Multiline = true;
             txtNotes.Name = "txtNotes";
-            txtNotes.Size = new Size(384, 152);
+            txtNotes.Size = new Size(336, 115);
             txtNotes.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            label1.Location = new Point(416, 15);
+            label1.Location = new Point(360, 67);
             label1.Name = "label1";
-            label1.Size = new Size(88, 28);
+            label1.Size = new Size(69, 21);
             label1.TabIndex = 0;
             label1.Text = "ملاحظات";
             // 
@@ -84,9 +93,10 @@
             btnCancel.ImageAlign = ContentAlignment.MiddleRight;
             btnCancel.ImageKey = "icons8-cancel-50-red.png";
             btnCancel.ImageList = imageList1;
-            btnCancel.Location = new Point(25, 219);
+            btnCancel.Location = new Point(21, 223);
+            btnCancel.Margin = new Padding(3, 2, 3, 2);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(142, 60);
+            btnCancel.Size = new Size(124, 60);
             btnCancel.TabIndex = 35;
             btnCancel.Text = "الغاء امر";
             btnCancel.TextAlign = ContentAlignment.MiddleLeft;
@@ -100,25 +110,62 @@
             btnOK.ImageAlign = ContentAlignment.MiddleRight;
             btnOK.ImageKey = "icons8-ok-50.png";
             btnOK.ImageList = imageList1;
-            btnOK.Location = new Point(410, 219);
+            btnOK.Location = new Point(358, 223);
+            btnOK.Margin = new Padding(3, 2, 3, 2);
             btnOK.Name = "btnOK";
-            btnOK.Size = new Size(142, 60);
+            btnOK.Size = new Size(124, 60);
             btnOK.TabIndex = 34;
             btnOK.Text = "موافق";
             btnOK.TextAlign = ContentAlignment.MiddleLeft;
             btnOK.UseVisualStyleBackColor = true;
             btnOK.Click += btnOK_Click;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            label2.Location = new Point(360, 25);
+            label2.Name = "label2";
+            label2.Size = new Size(47, 21);
+            label2.TabIndex = 2;
+            label2.Text = "المبلغ";
+            // 
+            // lblAmount
+            // 
+            lblAmount.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            lblAmount.BackColor = Color.White;
+            lblAmount.BorderStyle = BorderStyle.Fixed3D;
+            lblAmount.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            lblAmount.Location = new Point(255, 25);
+            lblAmount.Name = "lblAmount";
+            lblAmount.Size = new Size(91, 27);
+            lblAmount.TabIndex = 17;
+            lblAmount.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // btnDiscountPercent
+            // 
+            btnDiscountPercent.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnDiscountPercent.Image = (Image)resources.GetObject("btnDiscountPercent.Image");
+            btnDiscountPercent.Location = new Point(212, 23);
+            btnDiscountPercent.Margin = new Padding(3, 2, 3, 2);
+            btnDiscountPercent.Name = "btnDiscountPercent";
+            btnDiscountPercent.Size = new Size(44, 27);
+            btnDiscountPercent.SizeMode = PictureBoxSizeMode.StretchImage;
+            btnDiscountPercent.TabIndex = 16;
+            btnDiscountPercent.TabStop = false;
+            btnDiscountPercent.Click += btnDiscountPercent_Click;
+            // 
             // PayByCreditCardDialog
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(564, 291);
+            ClientSize = new Size(494, 294);
             Controls.Add(btnCancel);
             Controls.Add(btnOK);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             KeyPreview = true;
+            Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "PayByCreditCardDialog";
@@ -127,6 +174,7 @@
             Text = "بيع بالفيزا";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)btnDiscountPercent).EndInit();
             ResumeLayout(false);
         }
 
@@ -138,5 +186,8 @@
         private ImageList imageList1;
         private Button btnCancel;
         private Button btnOK;
+        private Label label2;
+        private Label lblAmount;
+        private PictureBox btnDiscountPercent;
     }
 }

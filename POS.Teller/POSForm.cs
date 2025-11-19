@@ -1,8 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore.Query;
 using POS.Client;
+using POS.Shared;
 using POS.Shared.DTOs;
 using POS.Shared.Models;
 using POS.Shared.ViewModels;
+using POS.Teller.ViewModel;
 using POS.Windows.Components;
 using POS.Windows.Components.ViewModels;
 using POS.Windows.Forms;
@@ -22,11 +24,19 @@ namespace POS.Windows
     {
         private SoldItemListComponent currentInvoice;
         List<SoldItemComponentViewModel> soldItems = new List<SoldItemComponentViewModel>();
+        List<PayWayViewModel> paidAmountList = new List<PayWayViewModel>();
         private bool isBacked = false;
 
         public POSForm()
         {
             InitializeComponent();
+            paidAmountList.Add(new PayWayViewModel { PayWayID =Convert.ToByte(PayWayEnum.Cash), PayWayDesc = "نقدي", Amount = 0 });
+            paidAmountList.Add(new PayWayViewModel { PayWayID = Convert.ToByte(PayWayEnum.Visa), PayWayDesc = "فيزا", Amount = 0 });
+            paidAmountList.Add(new PayWayViewModel { PayWayID =Convert.ToByte(PayWayEnum.Transfere), PayWayDesc = "حوالة", Amount = 0 });
+            paidAmountList.Add(new PayWayViewModel { PayWayID = Convert.ToByte(PayWayEnum.Debits), PayWayDesc = "ذمم", Amount = 0 });
+
+            grdPayWays.AutoGenerateColumns=false;
+            grdPayWays.DataSource = paidAmountList;
         }
         public void draw()
         {
@@ -54,6 +64,8 @@ namespace POS.Windows
                 Id = "1" //btnInvoice0.Name
             });
             component.OnInvoiceCancelClick += new EventHandler(OnInvoiceCancelClick);
+            component.OnItemChanged += new EventHandler(OnItemChanged);
+            component.OnPayWayChanged += new EventHandler(OnPayWayChanged);
             pnlInvoices.Controls.Add(component);
             currentInvoice = component;
             component.Dock = DockStyle.Fill;
@@ -125,6 +137,35 @@ namespace POS.Windows
         protected void OnInvoiceCancelClick(object sender, EventArgs e)
         {
             removeInvoice();
+        }
+        private decimal getTotalPaidAmountWithoutCash()
+        {
+            decimal totalPaid = 0;
+            foreach (var payWay in paidAmountList)
+            {
+                totalPaid += payWay.Amount;
+            }
+            return totalPaid-paidAmountList[0].Amount;
+        }
+        protected void OnItemChanged(object sender, EventArgs e)
+        {
+            paidAmountList[0].Amount = currentInvoice.getNetAmount()- getTotalPaidAmountWithoutCash();
+            grdPayWays.AutoGenerateColumns = false;
+            grdPayWays.DataSource = paidAmountList;
+            grdPayWays.Refresh();
+            //MessageBox.Show(currentInvoice.getTotalAmount().ToString());
+            //MessageBox.Show(currentInvoice.getNetAmount().ToString());
+        }
+        protected void OnPayWayChanged(object sender, EventArgs e)
+        {
+            PayWayViewModel payWay = (PayWayViewModel)sender;
+            paidAmountList[1].Amount = payWay.Amount;
+            paidAmountList[0].Amount = currentInvoice.getNetAmount()- getTotalPaidAmountWithoutCash();
+            grdPayWays.AutoGenerateColumns = false;
+            grdPayWays.DataSource = paidAmountList;
+            grdPayWays.Refresh();
+            //MessageBox.Show(currentInvoice.getTotalAmount().ToString());
+            //MessageBox.Show(currentInvoice.getNetAmount().ToString());
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
