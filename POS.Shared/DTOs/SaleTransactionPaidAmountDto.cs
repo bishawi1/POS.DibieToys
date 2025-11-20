@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace POS.Shared.DTOs
+{
+    public class SaleTransactionPaidAmountDto
+    {
+        public byte PayWayId { get; set; }
+        public decimal Amount { get; set; } = 0;
+    }
+}

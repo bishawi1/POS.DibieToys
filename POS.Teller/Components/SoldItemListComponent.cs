@@ -401,7 +401,7 @@ namespace POS.Windows.Components
             txtBarcode.Focus();
             deletedItems.Clear();
         }
-        private async Task<int> addInvoice()
+        private async Task<int> addInvoice(List<SaleTransactionPaidAmountDto> amountList=null)
         {
             try
             {
@@ -450,6 +450,10 @@ namespace POS.Windows.Components
                     Delevery_Transaction_No = delevery_Transaction_No,
                     items = modifyTransactionItems
                 };
+                if(amountList != null && amountList.Count > 0)
+                {
+                    model.PaidAmountList = amountList;
+                }
                 General.Show_Wait_Form(Constants.mstrWaitingMessage);
                 ResultModel result = await POS.Client.SaleTransactionRepository.add(model);
                 if (result != null)
@@ -543,12 +547,12 @@ namespace POS.Windows.Components
             }
         }
 
-        private async Task<int> saveInvoice()
+        private async Task<int> saveInvoice(List<SaleTransactionPaidAmountDto> PaidAmountList = null)
         {
             //mintSaleTransactionID = 0;
             if (newINvoice == true)
             {
-                mintSaleTransactionID = await addInvoice();
+                mintSaleTransactionID = await addInvoice(PaidAmountList);
             }
             else
             {
@@ -557,12 +561,12 @@ namespace POS.Windows.Components
 
             return mintSaleTransactionID;
         }
-        public async void fireSaveInvoice()
+        public async void fireSaveInvoice(List<SaleTransactionPaidAmountDto> PaidAmountList=null)
         {
             int saleTransactionId = 0;
             if (moDataTable != null)
             {
-                saleTransactionId = await saveInvoice();
+                saleTransactionId = await saveInvoice(PaidAmountList);
 
                 if (saleTransactionId > 0)
                     OnInvoiceSaved?.Invoke(this, null);

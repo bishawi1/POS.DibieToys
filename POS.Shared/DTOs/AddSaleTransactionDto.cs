@@ -40,6 +40,7 @@ namespace POS.Shared.DTOs
         public decimal? Delevery_Fees { get; set; } = 0;
         public string? Delevery_Place { get; set; }
         public string? Delevery_Transaction_No { get; set; }
+        public List<SaleTransactionPaidAmountDto>? PaidAmountList { get; set; }
 
     }
 }

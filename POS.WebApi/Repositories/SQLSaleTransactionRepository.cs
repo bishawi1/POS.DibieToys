@@ -631,13 +631,17 @@ namespace POS.WebApi.Repositories
                     dbContext.SaveChanges();
 
                     // Prepare for Payment
+                    foreach(var paidAmount in model.PaidAmountList )
+                    {
 
                     voucher = new VoucherModel() 
                     {
-                         Pay_Way_Id = model.PayWayId,
+                         Pay_Way_Id =paidAmount.PayWayId,// model.PayWayId,
                          User_Name=model.User_Name,
-                         Debit_Amount=newSale.IsBacked ? voucherAmount - model.DiscountAmount - model.PaidAmount : 0,
-                         Credit_Amount= newSale.IsBacked ? 0 : voucherAmount - model.DiscountAmount - model.PaidAmount,
+                         Debit_Amount=newSale.IsBacked ? paidAmount.Amount : 0,
+                         Credit_Amount= newSale.IsBacked ? 0 : paidAmount.Amount,
+                         //Debit_Amount=newSale.IsBacked ? voucherAmount - model.DiscountAmount - model.PaidAmount : 0,
+                         //Credit_Amount= newSale.IsBacked ? 0 : voucherAmount - model.DiscountAmount - model.PaidAmount,
                          Voucher_Currency_ID=1,
                          Voucher_Currency_Rate=1,
                          Voucher_Date=DateTime.Today,
@@ -647,11 +651,13 @@ namespace POS.WebApi.Repositories
                          Person_ID= (short)model.Customer_ID,
                         Manual_Voucher_No = newSale.Sale_Transaction_ID.ToString(),
                     };
-                    if (model.PayWayId == 1)
+                    //if (model.PayWayId == 1)
+                    if (paidAmount.PayWayId == 1)
                     {
                         addPayment = true;
                     }
-                    else if (model.PayWayId == 2)//Debits
+                    //else if (model.PayWayId == 2)//Debits
+                    else if (paidAmount.PayWayId == 2)//Debits
                     {
                         if (model.Customer_ID == 2) // Online Sale
                         {
@@ -663,18 +669,21 @@ namespace POS.WebApi.Repositories
                             addPayment = true;
                         }
                     }
-                    else if (model.PayWayId == 3)//cheque
+                    //else if (model.PayWayId == 3)//cheque
+                    else if (paidAmount.PayWayId == 3)//cheque
                     {
                         voucher.Cheque_No = model.Cheque_No;
                         voucher.Cheque_Due_Date=model.Cheque_Due_Date;
                         voucher.Cheque_Bank_No=model.Bank_NO;
                         addPayment = true;
                     }
-                    else if (model.PayWayId == 4) // Bank Transfere
+                    //else if (model.PayWayId == 4) // Bank Transfere
+                    else if (paidAmount.PayWayId == 4) // Bank Transfere
                     {
                         addPayment = true;
                     }
-                    else if (model.PayWayId == 5)// Visa
+                    //else if (model.PayWayId == 5)// Visa
+                    else if (paidAmount.PayWayId == 5)// Visa
                     {
                         addPayment = true;
                     }
@@ -690,6 +699,7 @@ namespace POS.WebApi.Repositories
                         dbContext.SaveChanges();
                     }
 
+                    }
 
 
 

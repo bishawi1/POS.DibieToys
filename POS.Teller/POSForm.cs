@@ -149,18 +149,29 @@ namespace POS.Windows
         }
         protected void OnItemChanged(object sender, EventArgs e)
         {
-            paidAmountList[0].Amount = currentInvoice.getNetAmount()- getTotalPaidAmountWithoutCash();
+            paidAmountList[getPayWayIndex(Convert.ToByte(PayWayEnum.Cash))].Amount = currentInvoice.getNetAmount() - getTotalPaidAmountWithoutCash();
             grdPayWays.AutoGenerateColumns = false;
             grdPayWays.DataSource = paidAmountList;
             grdPayWays.Refresh();
             //MessageBox.Show(currentInvoice.getTotalAmount().ToString());
             //MessageBox.Show(currentInvoice.getNetAmount().ToString());
         }
+        private int getPayWayIndex(byte payWayId)
+        {
+            for(int i=0;i< paidAmountList.Count;i++)
+            {
+                if(paidAmountList[i].PayWayID == payWayId)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
         protected void OnPayWayChanged(object sender, EventArgs e)
         {
             PayWayViewModel payWay = (PayWayViewModel)sender;
-            paidAmountList[1].Amount = payWay.Amount;
-            paidAmountList[0].Amount = currentInvoice.getNetAmount()- getTotalPaidAmountWithoutCash();
+            paidAmountList[getPayWayIndex(Convert.ToByte(PayWayEnum.Visa))].Amount = payWay.Amount;
+            paidAmountList[getPayWayIndex(Convert.ToByte(PayWayEnum.Cash))].Amount = currentInvoice.getNetAmount() - getTotalPaidAmountWithoutCash();
             grdPayWays.AutoGenerateColumns = false;
             grdPayWays.DataSource = paidAmountList;
             grdPayWays.Refresh();
@@ -233,7 +244,27 @@ namespace POS.Windows
 
         private void tsbtnSave_Click(object sender, EventArgs e)
         {
-            currentInvoice.fireSaveInvoice();
+            if (paidAmountList != null)
+            {
+                List<SaleTransactionPaidAmountDto> AmountList = new List<SaleTransactionPaidAmountDto>();
+                foreach (var payWay in paidAmountList)
+                {
+                    if (payWay.Amount > 0)
+                    {
+                        AmountList.Add(new SaleTransactionPaidAmountDto
+                        {
+                            PayWayId =  Convert.ToByte(payWay.PayWayID),
+                            Amount = payWay.Amount
+                        });
+                    }
+                }
+                currentInvoice.fireSaveInvoice(AmountList);
+            }
+            else
+            {
+                currentInvoice.fireSaveInvoice();
+            }
+                
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
