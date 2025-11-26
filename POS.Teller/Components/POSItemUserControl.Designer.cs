@@ -1,4 +1,4 @@
-﻿namespace POS.Windows.Components
+﻿namespace POS.Teller.Components
 {
     partial class POSItemUserControl
     {
@@ -140,7 +140,7 @@
             // 
             // button1
             // 
-            button1.Image = Windows.Properties.Resources.icons8_add_50;
+            button1.Image = Properties.Resources.icons8_add_50;
             button1.Location = new Point(2, 11);
             button1.Name = "button1";
             button1.Size = new Size(58, 59);
@@ -149,7 +149,7 @@
             // 
             // button2
             // 
-            button2.Image = Windows.Properties.Resources.icons8_minus_50;
+            button2.Image = Properties.Resources.icons8_minus_50;
             button2.Location = new Point(2, 11);
             button2.Name = "button2";
             button2.Size = new Size(58, 59);

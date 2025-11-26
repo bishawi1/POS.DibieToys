@@ -38,6 +38,8 @@
             tsbtnItemStockDetails = new ToolStripButton();
             tsbtnBeginingQnt = new ToolStripButton();
             pnlCriteria = new Panel();
+            label6 = new Label();
+            cmbBranch_ID = new ComboBox();
             txtBarcode = new TextBox();
             label5 = new Label();
             btnShow_Item_Group_ID_LOV = new Button();
@@ -63,11 +65,12 @@
             colIs_Main_Unit = new DataGridViewCheckBoxColumn();
             txtItemCount = new MaskedTextBox();
             label1 = new Label();
-            label6 = new Label();
-            cmbBranch_ID = new ComboBox();
+            label3 = new Label();
+            txtItemId = new NumericUpDown();
             toolStrip1.SuspendLayout();
             pnlCriteria.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)grdItems).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtItemId).BeginInit();
             SuspendLayout();
             // 
             // toolStrip1
@@ -120,6 +123,8 @@
             // 
             pnlCriteria.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pnlCriteria.BorderStyle = BorderStyle.FixedSingle;
+            pnlCriteria.Controls.Add(txtItemId);
+            pnlCriteria.Controls.Add(label3);
             pnlCriteria.Controls.Add(label6);
             pnlCriteria.Controls.Add(cmbBranch_ID);
             pnlCriteria.Controls.Add(txtBarcode);
@@ -134,13 +139,32 @@
             pnlCriteria.Location = new Point(450, 55);
             pnlCriteria.Margin = new Padding(3, 4, 3, 4);
             pnlCriteria.Name = "pnlCriteria";
-            pnlCriteria.Size = new Size(748, 133);
+            pnlCriteria.Size = new Size(748, 165);
             pnlCriteria.TabIndex = 1;
+            // 
+            // label6
+            // 
+            label6.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label6.AutoSize = true;
+            label6.Location = new Point(249, 14);
+            label6.Name = "label6";
+            label6.Size = new Size(41, 20);
+            label6.TabIndex = 61;
+            label6.Text = "الفرع";
+            // 
+            // cmbBranch_ID
+            // 
+            cmbBranch_ID.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbBranch_ID.FormattingEnabled = true;
+            cmbBranch_ID.Location = new Point(16, 14);
+            cmbBranch_ID.Name = "cmbBranch_ID";
+            cmbBranch_ID.Size = new Size(227, 28);
+            cmbBranch_ID.TabIndex = 60;
             // 
             // txtBarcode
             // 
             txtBarcode.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtBarcode.Location = new Point(311, 13);
+            txtBarcode.Location = new Point(310, 50);
             txtBarcode.Margin = new Padding(3, 4, 3, 4);
             txtBarcode.Name = "txtBarcode";
             txtBarcode.Size = new Size(337, 27);
@@ -152,7 +176,7 @@
             // 
             label5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label5.AutoSize = true;
-            label5.Location = new Point(655, 13);
+            label5.Location = new Point(654, 50);
             label5.Name = "label5";
             label5.Size = new Size(47, 20);
             label5.TabIndex = 0;
@@ -162,7 +186,7 @@
             // 
             btnShow_Item_Group_ID_LOV.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnShow_Item_Group_ID_LOV.Image = Properties.Resources.List;
-            btnShow_Item_Group_ID_LOV.Location = new Point(580, 91);
+            btnShow_Item_Group_ID_LOV.Location = new Point(579, 122);
             btnShow_Item_Group_ID_LOV.Margin = new Padding(3, 4, 3, 4);
             btnShow_Item_Group_ID_LOV.Name = "btnShow_Item_Group_ID_LOV";
             btnShow_Item_Group_ID_LOV.Size = new Size(31, 31);
@@ -174,7 +198,7 @@
             // txtItem_Group_ID
             // 
             txtItem_Group_ID.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtItem_Group_ID.Location = new Point(614, 91);
+            txtItem_Group_ID.Location = new Point(613, 122);
             txtItem_Group_ID.Margin = new Padding(3, 4, 3, 4);
             txtItem_Group_ID.Mask = "00000";
             txtItem_Group_ID.Name = "txtItem_Group_ID";
@@ -185,7 +209,7 @@
             // 
             txtItem_Group_Desc.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             txtItem_Group_Desc.BackColor = Color.White;
-            txtItem_Group_Desc.Location = new Point(311, 91);
+            txtItem_Group_Desc.Location = new Point(310, 122);
             txtItem_Group_Desc.Margin = new Padding(3, 4, 3, 4);
             txtItem_Group_Desc.Name = "txtItem_Group_Desc";
             txtItem_Group_Desc.ReadOnly = true;
@@ -197,7 +221,7 @@
             // 
             label4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label4.AutoSize = true;
-            label4.Location = new Point(655, 91);
+            label4.Location = new Point(654, 122);
             label4.Name = "label4";
             label4.Size = new Size(78, 20);
             label4.TabIndex = 4;
@@ -206,7 +230,7 @@
             // txtItem_Desc
             // 
             txtItem_Desc.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtItem_Desc.Location = new Point(311, 52);
+            txtItem_Desc.Location = new Point(310, 86);
             txtItem_Desc.Margin = new Padding(3, 4, 3, 4);
             txtItem_Desc.Name = "txtItem_Desc";
             txtItem_Desc.Size = new Size(337, 27);
@@ -216,7 +240,7 @@
             // 
             label2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label2.AutoSize = true;
-            label2.Location = new Point(655, 52);
+            label2.Location = new Point(654, 86);
             label2.Name = "label2";
             label2.Size = new Size(83, 20);
             label2.TabIndex = 2;
@@ -225,7 +249,7 @@
             // btnGetData
             // 
             btnGetData.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnGetData.Location = new Point(218, 91);
+            btnGetData.Location = new Point(218, 122);
             btnGetData.Margin = new Padding(3, 4, 3, 4);
             btnGetData.Name = "btnGetData";
             btnGetData.Size = new Size(86, 31);
@@ -248,13 +272,13 @@
             grdItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             grdItems.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             grdItems.Columns.AddRange(new DataGridViewColumn[] { colItem_Unit_ID, colItem_ID, colItem_Desc, colItem_Group_ID, colItem_Group_Desc, colItem_Status_ID, colUnit_ID, colUnit_Desc, colItem_Unit_Price, colItem_Unit_Cost, colRemainQNT, colBarcode, colIs_Main_Unit });
-            grdItems.Location = new Point(21, 215);
+            grdItems.Location = new Point(21, 254);
             grdItems.Margin = new Padding(3, 4, 3, 4);
             grdItems.Name = "grdItems";
             grdItems.ReadOnly = true;
             grdItems.RowHeadersWidth = 51;
             grdItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            grdItems.Size = new Size(1185, 473);
+            grdItems.Size = new Size(1185, 434);
             grdItems.TabIndex = 2;
             grdItems.CellMouseDoubleClick += grdItems_CellMouseDoubleClick;
             // 
@@ -411,24 +435,23 @@
             label1.TabIndex = 6;
             label1.Text = "عدد الاصناف";
             // 
-            // label6
+            // label3
             // 
-            label6.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label6.AutoSize = true;
-            label6.Location = new Point(249, 13);
-            label6.Name = "label6";
-            label6.Size = new Size(41, 20);
-            label6.TabIndex = 61;
-            label6.Text = "الفرع";
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label3.AutoSize = true;
+            label3.Location = new Point(654, 14);
+            label3.Name = "label3";
+            label3.Size = new Size(79, 20);
+            label3.TabIndex = 62;
+            label3.Text = "رقم الصنف";
             // 
-            // cmbBranch_ID
+            // txtItemId
             // 
-            cmbBranch_ID.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbBranch_ID.FormattingEnabled = true;
-            cmbBranch_ID.Location = new Point(16, 13);
-            cmbBranch_ID.Name = "cmbBranch_ID";
-            cmbBranch_ID.Size = new Size(227, 28);
-            cmbBranch_ID.TabIndex = 60;
+            txtItemId.Location = new Point(497, 14);
+            txtItemId.Maximum = new decimal(new int[] { 9999999, 0, 0, 0 });
+            txtItemId.Name = "txtItemId";
+            txtItemId.Size = new Size(150, 27);
+            txtItemId.TabIndex = 63;
             // 
             // ItemListForm
             // 
@@ -452,6 +475,7 @@
             pnlCriteria.ResumeLayout(false);
             pnlCriteria.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)grdItems).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtItemId).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -491,5 +515,7 @@
         private ToolStripButton tsbtnBeginingQnt;
         private Label label6;
         private ComboBox cmbBranch_ID;
+        private NumericUpDown txtItemId;
+        private Label label3;
     }
 }

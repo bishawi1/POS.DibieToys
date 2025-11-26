@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace POS.Windows.LOVs
+namespace POS.Teller.LOVs
 {
     
     public partial class CustomerLov : Form

@@ -1,4 +1,4 @@
-﻿namespace POS.Windows.Auth
+﻿namespace POS.Teller.Auth
 {
     partial class ChangePasswordForm
     {

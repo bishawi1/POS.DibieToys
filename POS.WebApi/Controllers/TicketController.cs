@@ -174,5 +174,191 @@ namespace POS.WebApi.Controllers
             }
         }
 
+        [HttpPost]
+        [Route("ReserveToysRoom")]
+        public async Task<IActionResult> ReserveToysRoom([FromBody]  AddReserveToysRookRequestDto createRequestDto)
+        {
+            try
+            {
+                Reserve_Toy_RoomModel model =new Reserve_Toy_RoomModel
+                {
+                    Amount = createRequestDto.Amount,
+                    Canceled = false,
+                    Done = false,
+                    Time_Stamp = General.GetCurrentTime(),
+                    Kids_No = createRequestDto.Kids_No,
+                    Due_Date=General.GetCurrentDate(),
+                    Notes = createRequestDto.Notes,
+                    Reserver_Name=createRequestDto.Reserver_Name,
+                    User_Name=createRequestDto.User_Name,
+                    // Assign model properties
+                    // Book_Author_Desc = createRequestDto.Book_Author_Desc,
+                };
+                model = await repository.ReserveToysRookAsync(model);
+                return Ok(new ResultModel()
+                {
+                    Data = model,
+                    ErrorText = "",
+                    StatusCode = "200"
+                });
+            }
+            catch (Exception ex)
+            {
+                return Ok(new ResultModel()
+                {
+                    Data = null,
+                    ErrorText = ex.Message.ToString(),
+                    StatusCode = "500"
+                });
+            }
+        }
+
+        [HttpPost]
+        [Route("GetReserveToysRoomList")]
+        public async Task<IActionResult> getReserveToysRoom(ReserveToysRoomCriteriaViewModel criteria)
+        {
+            var Statement = await repository.getReserveToysRoomAsync(criteria);
+            try
+            {
+                return Ok(new ResultModel()
+                {
+                    Data = Statement,
+                    ErrorText = string.Empty,
+                    StatusCode = "200"
+                });
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new ResultModel()
+                {
+                    Data = ex,
+                    ErrorText = string.Empty,
+                    StatusCode = HttpStatusCode.InternalServerError.ToString()
+                });
+
+                throw;
+            }
+
+        }
+
+
+        [HttpGet]
+        [Route("GetReserveToysRoom{Id:int}")]
+        public async Task<IActionResult> GetReserveToysRoom(int Id)
+        {
+            var oModel = await repository.getReserveToysRoomIdAsync(Id);
+            try
+            {
+                return Ok(new ResultModel()
+                {
+                    Data = oModel,
+                    ErrorText = string.Empty,
+                    StatusCode = "200"
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new ResultModel()
+                {
+                    Data = ex,
+                    ErrorText = string.Empty,
+                    StatusCode = HttpStatusCode.InternalServerError.ToString()
+                }); throw;
+            }
+        }
+
+        [HttpPost]
+        [Route("EditReserveToysRoom")]
+        public async Task<IActionResult> EditReserveToysRoom( [FromBody] EditReserveToysRookRequestDto updateRequest)
+        {
+            Reserve_Toy_RoomModel model = await repository.getReserveToysRoomIdAsync(updateRequest.Reserve_Toy_Room_ID);
+            if (model == null)
+            {
+
+                return NotFound();
+            }
+            else
+            {
+                try
+                {
+                    model.Due_Date = DateTime.Now;
+                    model.Notes=updateRequest.Notes;
+                    model.Reserver_Name = updateRequest.Reserver_Name;
+                    model.User_Name = updateRequest.User_Name;
+                    model.Canceled = updateRequest.Canceled;
+                    model.Done=updateRequest.Done;
+                    model.Kids_No = updateRequest.Kids_No;
+                    model.Amount = updateRequest.Amount;
+                    model = await repository.updateReserveToysRoomAsync(updateRequest.Reserve_Toy_Room_ID, model);
+                    return Ok(new ResultModel()
+                    {
+                        Data = model,
+                        ErrorText = string.Empty,
+                        StatusCode = "200"
+                    });
+                }
+                catch (Exception ex)
+                {
+                    return Ok(new ResultModel()
+                    {
+                        Data = ex,
+                        StatusCode = "500",
+                        ErrorText = ex.Message
+                    });
+                    throw;
+                }
+            }
+        }
+        [HttpGet]
+        [Route("CancelReserveToysRoom/{Id:int}")]
+        public async Task<IActionResult> CancelReserveToysRoom(int Id)
+        {
+            var oModel = await repository.CancelReserveToysRoomAsync(Id);
+            try
+            {
+                return Ok(new ResultModel()
+                {
+                    Data = oModel,
+                    ErrorText = string.Empty,
+                    StatusCode = "200"
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new ResultModel()
+                {
+                    Data = ex,
+                    ErrorText = string.Empty,
+                    StatusCode = HttpStatusCode.InternalServerError.ToString()
+                }); throw;
+            }
+        }
+
+        [HttpGet]
+        [Route("DoReserveToysRoom/{Id:int}")]
+        public async Task<IActionResult> DoReserveToysRoom(int Id)
+        {
+            var oModel = await repository.DoReserveToysRoomAsync(Id);
+            try
+            {
+                return Ok(new ResultModel()
+                {
+                    Data = oModel,
+                    ErrorText = string.Empty,
+                    StatusCode = "200"
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new ResultModel()
+                {
+                    Data = ex,
+                    ErrorText = string.Empty,
+                    StatusCode = HttpStatusCode.InternalServerError.ToString()
+                }); throw;
+            }
+        }
+
     }
 }

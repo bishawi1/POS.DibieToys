@@ -43,13 +43,14 @@
             tsbtnSalesTransactionList = new ToolStripButton();
             tsbtnVoucherListForm = new ToolStripButton();
             tsbtnSupplyTransactionList = new ToolStripButton();
+            tsbtnTicketList = new ToolStripButton();
             tsbtnQabdVoucherList = new ToolStripButton();
             tsbtnOnlineSalesList = new ToolStripButton();
             tsbtnSalesInvoiceList = new ToolStripButton();
             tsbtnPurchaseList = new ToolStripButton();
             tsbtnExpenses = new ToolStripButton();
             tsbtnDashboard = new ToolStripButton();
-            tsbtnTicketList = new ToolStripButton();
+            tsbtnShowToysRoomReservation = new ToolStripButton();
             menuStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
             SuspendLayout();
@@ -61,7 +62,7 @@
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(7, 3, 0, 3);
-            menuStrip1.Size = new Size(914, 30);
+            menuStrip1.Size = new Size(1115, 30);
             menuStrip1.TabIndex = 1;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -98,12 +99,12 @@
             // 
             toolStrip1.Dock = DockStyle.Right;
             toolStrip1.ImageScalingSize = new Size(32, 32);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { tsbtnItemList, tsbtnBookList, tsbtnCustomerIndex, tsbtnProviders, tsbtnPartnerList, tsbtnStatementOfAccount, tsbtnSalesTransactionList, tsbtnVoucherListForm, tsbtnSupplyTransactionList, tsbtnTicketList, tsbtnQabdVoucherList, tsbtnOnlineSalesList, tsbtnSalesInvoiceList, tsbtnPurchaseList, tsbtnExpenses, tsbtnDashboard });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { tsbtnItemList, tsbtnBookList, tsbtnCustomerIndex, tsbtnProviders, tsbtnPartnerList, tsbtnStatementOfAccount, tsbtnSalesTransactionList, tsbtnVoucherListForm, tsbtnSupplyTransactionList, tsbtnTicketList, tsbtnQabdVoucherList, tsbtnOnlineSalesList, tsbtnSalesInvoiceList, tsbtnPurchaseList, tsbtnExpenses, tsbtnDashboard, tsbtnShowToysRoomReservation });
             toolStrip1.LayoutStyle = ToolStripLayoutStyle.Table;
-            toolStrip1.Location = new Point(766, 30);
+            toolStrip1.Location = new Point(963, 30);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.RightToLeft = RightToLeft.Yes;
-            toolStrip1.Size = new Size(148, 570);
+            toolStrip1.Size = new Size(152, 807);
             toolStrip1.TabIndex = 3;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -193,6 +194,15 @@
             tsbtnSupplyTransactionList.Text = "توريد الاصناف";
             tsbtnSupplyTransactionList.Click += tsbtnSupplyTransactionList_Click;
             // 
+            // tsbtnTicketList
+            // 
+            tsbtnTicketList.Image = Properties.Resources.ticket;
+            tsbtnTicketList.ImageTransparentColor = Color.Magenta;
+            tsbtnTicketList.Name = "tsbtnTicketList";
+            tsbtnTicketList.Size = new Size(85, 36);
+            tsbtnTicketList.Text = "التذاكر";
+            tsbtnTicketList.Click += tsbtnTicketList_Click;
+            // 
             // tsbtnQabdVoucherList
             // 
             tsbtnQabdVoucherList.ImageTransparentColor = Color.Magenta;
@@ -247,20 +257,20 @@
             tsbtnDashboard.Text = "ملخص الاعمال";
             tsbtnDashboard.Click += tsbtnDashboard_Click;
             // 
-            // tsbtnTicketList
+            // tsbtnShowToysRoomReservation
             // 
-            tsbtnTicketList.Image = Properties.Resources.ticket;
-            tsbtnTicketList.ImageTransparentColor = Color.Magenta;
-            tsbtnTicketList.Name = "tsbtnTicketList";
-            tsbtnTicketList.Size = new Size(85, 36);
-            tsbtnTicketList.Text = "التذاكر";
-            tsbtnTicketList.Click += tsbtnTicketList_Click;
+            tsbtnShowToysRoomReservation.Image = Properties.Resources.icons8_reservation_50;
+            tsbtnShowToysRoomReservation.ImageTransparentColor = Color.Magenta;
+            tsbtnShowToysRoomReservation.Name = "tsbtnShowToysRoomReservation";
+            tsbtnShowToysRoomReservation.Size = new Size(151, 36);
+            tsbtnShowToysRoomReservation.Text = "حجز قاعة الالعاب";
+            tsbtnShowToysRoomReservation.Click += tsbtnShowToysRoomReservation_Click;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 600);
+            ClientSize = new Size(1115, 837);
             Controls.Add(toolStrip1);
             Controls.Add(menuStrip1);
             IsMdiContainer = true;
@@ -306,5 +316,6 @@
         private ToolStripButton tsbtnSupplyTransactionList;
         private ToolStripButton tsbtnBookList;
         private ToolStripButton tsbtnTicketList;
+        private ToolStripButton tsbtnShowToysRoomReservation;
     }
 }

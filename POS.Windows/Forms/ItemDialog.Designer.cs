@@ -114,16 +114,17 @@
             panel1.Location = new Point(10, 62);
             panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(607, 387);
+            panel1.Size = new Size(607, 251);
             panel1.TabIndex = 0;
             // 
             // btnUploadFile
             // 
             btnUploadFile.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnUploadFile.Location = new Point(4, 112);
+            btnUploadFile.Location = new Point(4, 117);
             btnUploadFile.Name = "btnUploadFile";
             btnUploadFile.Size = new Size(124, 29);
-            btnUploadFile.TabIndex = 32;
+            btnUploadFile.TabIndex = 12;
+            btnUploadFile.TabStop = false;
             btnUploadFile.Text = "ارفاق";
             btnUploadFile.UseVisualStyleBackColor = true;
             btnUploadFile.Click += btnUploadFile_Click;
@@ -146,7 +147,7 @@
             chkQuickAccess.Location = new Point(229, 15);
             chkQuickAccess.Name = "chkQuickAccess";
             chkQuickAccess.Size = new Size(119, 24);
-            chkQuickAccess.TabIndex = 30;
+            chkQuickAccess.TabIndex = 2;
             chkQuickAccess.Text = "قائمة مختصرة";
             chkQuickAccess.UseVisualStyleBackColor = true;
             // 
@@ -154,25 +155,28 @@
             // 
             btnShow_Book_Source_ID_LOV.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnShow_Book_Source_ID_LOV.Image = Properties.Resources.List;
-            btnShow_Book_Source_ID_LOV.Location = new Point(410, 280);
+            btnShow_Book_Source_ID_LOV.Location = new Point(410, 330);
             btnShow_Book_Source_ID_LOV.Margin = new Padding(3, 4, 3, 4);
             btnShow_Book_Source_ID_LOV.Name = "btnShow_Book_Source_ID_LOV";
             btnShow_Book_Source_ID_LOV.Size = new Size(31, 31);
-            btnShow_Book_Source_ID_LOV.TabIndex = 26;
+            btnShow_Book_Source_ID_LOV.TabIndex = 30;
             btnShow_Book_Source_ID_LOV.TabStop = false;
             btnShow_Book_Source_ID_LOV.UseVisualStyleBackColor = true;
+            btnShow_Book_Source_ID_LOV.Visible = false;
             btnShow_Book_Source_ID_LOV.Click += btnShow_Book_Source_ID_LOV_Click;
             // 
             // txtSource_ID
             // 
             txtSource_ID.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtSource_ID.Location = new Point(443, 280);
+            txtSource_ID.Location = new Point(443, 330);
             txtSource_ID.Margin = new Padding(3, 4, 3, 4);
             txtSource_ID.Mask = "00000";
             txtSource_ID.Name = "txtSource_ID";
             txtSource_ID.Size = new Size(34, 27);
-            txtSource_ID.TabIndex = 25;
+            txtSource_ID.TabIndex = 29;
+            txtSource_ID.TabStop = false;
             txtSource_ID.Text = "0";
+            txtSource_ID.Visible = false;
             txtSource_ID.Enter += txtSource_ID_Enter;
             txtSource_ID.Validating += txtSource_ID_Validating;
             // 
@@ -180,28 +184,30 @@
             // 
             txtSource_Name.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             txtSource_Name.BackColor = Color.White;
-            txtSource_Name.Location = new Point(140, 280);
+            txtSource_Name.Location = new Point(140, 330);
             txtSource_Name.Margin = new Padding(3, 4, 3, 4);
             txtSource_Name.Name = "txtSource_Name";
             txtSource_Name.ReadOnly = true;
             txtSource_Name.Size = new Size(267, 27);
-            txtSource_Name.TabIndex = 27;
+            txtSource_Name.TabIndex = 0;
             txtSource_Name.TabStop = false;
+            txtSource_Name.Visible = false;
             // 
             // label10
             // 
             label10.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label10.AutoSize = true;
-            label10.Location = new Point(484, 280);
+            label10.Location = new Point(484, 330);
             label10.Name = "label10";
             label10.Size = new Size(56, 20);
-            label10.TabIndex = 24;
+            label10.TabIndex = 27;
             label10.Text = "المصدر";
+            label10.Visible = false;
             // 
             // btnGenerateBarcode
             // 
             btnGenerateBarcode.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnGenerateBarcode.Location = new Point(213, 48);
+            btnGenerateBarcode.Location = new Point(213, 45);
             btnGenerateBarcode.Margin = new Padding(3, 4, 3, 4);
             btnGenerateBarcode.Name = "btnGenerateBarcode";
             btnGenerateBarcode.Size = new Size(86, 31);
@@ -215,25 +221,28 @@
             // 
             btnShow_Item_Brand_ID_LOV.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnShow_Item_Brand_ID_LOV.Image = Properties.Resources.List;
-            btnShow_Item_Brand_ID_LOV.Location = new Point(410, 241);
+            btnShow_Item_Brand_ID_LOV.Location = new Point(410, 291);
             btnShow_Item_Brand_ID_LOV.Margin = new Padding(3, 4, 3, 4);
             btnShow_Item_Brand_ID_LOV.Name = "btnShow_Item_Brand_ID_LOV";
             btnShow_Item_Brand_ID_LOV.Size = new Size(31, 31);
-            btnShow_Item_Brand_ID_LOV.TabIndex = 22;
+            btnShow_Item_Brand_ID_LOV.TabIndex = 25;
             btnShow_Item_Brand_ID_LOV.TabStop = false;
             btnShow_Item_Brand_ID_LOV.UseVisualStyleBackColor = true;
+            btnShow_Item_Brand_ID_LOV.Visible = false;
             btnShow_Item_Brand_ID_LOV.Click += btnShow_Item_Brand_ID_LOV_Click;
             // 
             // txtItem_Brand_ID
             // 
             txtItem_Brand_ID.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtItem_Brand_ID.Location = new Point(443, 241);
+            txtItem_Brand_ID.Location = new Point(443, 291);
             txtItem_Brand_ID.Margin = new Padding(3, 4, 3, 4);
             txtItem_Brand_ID.Mask = "00000";
             txtItem_Brand_ID.Name = "txtItem_Brand_ID";
             txtItem_Brand_ID.Size = new Size(34, 27);
-            txtItem_Brand_ID.TabIndex = 21;
+            txtItem_Brand_ID.TabIndex = 24;
+            txtItem_Brand_ID.TabStop = false;
             txtItem_Brand_ID.Text = "0";
+            txtItem_Brand_ID.Visible = false;
             txtItem_Brand_ID.MaskInputRejected += txtItem_Brand_ID_MaskInputRejected;
             txtItem_Brand_ID.Enter += txtItem_Brand_ID_Enter;
             txtItem_Brand_ID.Validating += txtItem_Brand_ID_Validating;
@@ -242,33 +251,35 @@
             // 
             txtItem_Brand_Name.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             txtItem_Brand_Name.BackColor = Color.White;
-            txtItem_Brand_Name.Location = new Point(140, 241);
+            txtItem_Brand_Name.Location = new Point(140, 291);
             txtItem_Brand_Name.Margin = new Padding(3, 4, 3, 4);
             txtItem_Brand_Name.Name = "txtItem_Brand_Name";
             txtItem_Brand_Name.ReadOnly = true;
             txtItem_Brand_Name.Size = new Size(267, 27);
-            txtItem_Brand_Name.TabIndex = 23;
+            txtItem_Brand_Name.TabIndex = 26;
             txtItem_Brand_Name.TabStop = false;
+            txtItem_Brand_Name.Visible = false;
             // 
             // label9
             // 
             label9.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label9.AutoSize = true;
-            label9.Location = new Point(484, 241);
+            label9.Location = new Point(484, 291);
             label9.Name = "label9";
             label9.Size = new Size(56, 20);
-            label9.TabIndex = 20;
+            label9.TabIndex = 23;
             label9.Text = "المصنع";
+            label9.Visible = false;
             // 
             // btnShow_Unit_ID_LOV
             // 
             btnShow_Unit_ID_LOV.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnShow_Unit_ID_LOV.Image = Properties.Resources.List;
-            btnShow_Unit_ID_LOV.Location = new Point(410, 203);
+            btnShow_Unit_ID_LOV.Location = new Point(410, 153);
             btnShow_Unit_ID_LOV.Margin = new Padding(3, 4, 3, 4);
             btnShow_Unit_ID_LOV.Name = "btnShow_Unit_ID_LOV";
             btnShow_Unit_ID_LOV.Size = new Size(31, 31);
-            btnShow_Unit_ID_LOV.TabIndex = 18;
+            btnShow_Unit_ID_LOV.TabIndex = 19;
             btnShow_Unit_ID_LOV.TabStop = false;
             btnShow_Unit_ID_LOV.UseVisualStyleBackColor = true;
             btnShow_Unit_ID_LOV.Click += btnShow_Unit_ID_LOV_Click;
@@ -276,12 +287,12 @@
             // txtUnit_ID
             // 
             txtUnit_ID.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtUnit_ID.Location = new Point(443, 203);
+            txtUnit_ID.Location = new Point(443, 153);
             txtUnit_ID.Margin = new Padding(3, 4, 3, 4);
             txtUnit_ID.Mask = "00000";
             txtUnit_ID.Name = "txtUnit_ID";
             txtUnit_ID.Size = new Size(34, 27);
-            txtUnit_ID.TabIndex = 17;
+            txtUnit_ID.TabIndex = 18;
             txtUnit_ID.Text = "0";
             txtUnit_ID.Enter += txtUnit_ID_Enter;
             txtUnit_ID.Validating += txtUnit_ID_Validating;
@@ -290,70 +301,70 @@
             // 
             txtUnit_Desc.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             txtUnit_Desc.BackColor = Color.White;
-            txtUnit_Desc.Location = new Point(140, 203);
+            txtUnit_Desc.Location = new Point(140, 153);
             txtUnit_Desc.Margin = new Padding(3, 4, 3, 4);
             txtUnit_Desc.Name = "txtUnit_Desc";
             txtUnit_Desc.ReadOnly = true;
             txtUnit_Desc.Size = new Size(267, 27);
-            txtUnit_Desc.TabIndex = 19;
+            txtUnit_Desc.TabIndex = 20;
             txtUnit_Desc.TabStop = false;
             // 
             // label8
             // 
             label8.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label8.AutoSize = true;
-            label8.Location = new Point(484, 203);
+            label8.Location = new Point(484, 153);
             label8.Name = "label8";
             label8.Size = new Size(51, 20);
-            label8.TabIndex = 16;
+            label8.TabIndex = 17;
             label8.Text = "الوحدة";
             // 
             // txtItem_Unit_Cost
             // 
             txtItem_Unit_Cost.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             txtItem_Unit_Cost.DecimalPlaces = 2;
-            txtItem_Unit_Cost.Location = new Point(140, 164);
+            txtItem_Unit_Cost.Location = new Point(140, 117);
             txtItem_Unit_Cost.Margin = new Padding(3, 4, 3, 4);
             txtItem_Unit_Cost.Maximum = new decimal(new int[] { 99999999, 0, 0, 0 });
             txtItem_Unit_Cost.Name = "txtItem_Unit_Cost";
             txtItem_Unit_Cost.Size = new Size(114, 27);
-            txtItem_Unit_Cost.TabIndex = 15;
+            txtItem_Unit_Cost.TabIndex = 16;
             // 
             // label7
             // 
             label7.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label7.AutoSize = true;
-            label7.Location = new Point(261, 164);
+            label7.Location = new Point(261, 117);
             label7.Name = "label7";
             label7.Size = new Size(84, 20);
-            label7.TabIndex = 14;
+            label7.TabIndex = 15;
             label7.Text = "سعر التكلفة";
             // 
             // txtItem_Unit_Price
             // 
             txtItem_Unit_Price.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             txtItem_Unit_Price.DecimalPlaces = 1;
-            txtItem_Unit_Price.Location = new Point(363, 164);
+            txtItem_Unit_Price.Location = new Point(363, 117);
             txtItem_Unit_Price.Margin = new Padding(3, 4, 3, 4);
             txtItem_Unit_Price.Maximum = new decimal(new int[] { 99999999, 0, 0, 0 });
             txtItem_Unit_Price.Name = "txtItem_Unit_Price";
             txtItem_Unit_Price.Size = new Size(114, 27);
-            txtItem_Unit_Price.TabIndex = 13;
+            txtItem_Unit_Price.TabIndex = 14;
             // 
             // label6
             // 
             label6.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label6.AutoSize = true;
-            label6.Location = new Point(484, 164);
+            label6.Location = new Point(484, 117);
             label6.Name = "label6";
             label6.Size = new Size(46, 20);
-            label6.TabIndex = 12;
+            label6.TabIndex = 13;
             label6.Text = "السعر";
             // 
             // txtBarcode
             // 
             txtBarcode.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtBarcode.Location = new Point(305, 48);
+            txtBarcode.Location = new Point(305, 45);
             txtBarcode.Margin = new Padding(3, 4, 3, 4);
             txtBarcode.Name = "txtBarcode";
             txtBarcode.Size = new Size(172, 27);
@@ -364,7 +375,7 @@
             // 
             label5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label5.AutoSize = true;
-            label5.Location = new Point(484, 48);
+            label5.Location = new Point(484, 45);
             label5.Name = "label5";
             label5.Size = new Size(47, 20);
             label5.TabIndex = 3;
@@ -374,24 +385,28 @@
             // 
             btnShow_Item_Group_ID_LOV.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnShow_Item_Group_ID_LOV.Image = Properties.Resources.List;
-            btnShow_Item_Group_ID_LOV.Location = new Point(410, 125);
+            btnShow_Item_Group_ID_LOV.Location = new Point(410, 256);
             btnShow_Item_Group_ID_LOV.Margin = new Padding(3, 4, 3, 4);
             btnShow_Item_Group_ID_LOV.Name = "btnShow_Item_Group_ID_LOV";
             btnShow_Item_Group_ID_LOV.Size = new Size(31, 31);
             btnShow_Item_Group_ID_LOV.TabIndex = 10;
             btnShow_Item_Group_ID_LOV.TabStop = false;
             btnShow_Item_Group_ID_LOV.UseVisualStyleBackColor = true;
+            btnShow_Item_Group_ID_LOV.Visible = false;
             btnShow_Item_Group_ID_LOV.Click += btnShow_Season_ID_LOV_Click;
             // 
             // txtItem_Group_ID
             // 
             txtItem_Group_ID.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtItem_Group_ID.Location = new Point(443, 125);
+            txtItem_Group_ID.Location = new Point(443, 256);
             txtItem_Group_ID.Margin = new Padding(3, 4, 3, 4);
             txtItem_Group_ID.Mask = "00000";
             txtItem_Group_ID.Name = "txtItem_Group_ID";
             txtItem_Group_ID.Size = new Size(34, 27);
             txtItem_Group_ID.TabIndex = 9;
+            txtItem_Group_ID.TabStop = false;
+            txtItem_Group_ID.Text = "6";
+            txtItem_Group_ID.Visible = false;
             txtItem_Group_ID.MaskInputRejected += txtItem_Group_ID_MaskInputRejected;
             txtItem_Group_ID.Enter += txtItem_Group_ID_Enter;
             txtItem_Group_ID.Validating += txtItem_Group_ID_Validating;
@@ -400,48 +415,50 @@
             // 
             txtItem_Group_Desc.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             txtItem_Group_Desc.BackColor = Color.White;
-            txtItem_Group_Desc.Location = new Point(140, 125);
+            txtItem_Group_Desc.Location = new Point(140, 256);
             txtItem_Group_Desc.Margin = new Padding(3, 4, 3, 4);
             txtItem_Group_Desc.Name = "txtItem_Group_Desc";
             txtItem_Group_Desc.ReadOnly = true;
             txtItem_Group_Desc.Size = new Size(267, 27);
             txtItem_Group_Desc.TabIndex = 11;
             txtItem_Group_Desc.TabStop = false;
+            txtItem_Group_Desc.Visible = false;
             // 
             // label4
             // 
             label4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label4.AutoSize = true;
-            label4.Location = new Point(484, 125);
+            label4.Location = new Point(484, 256);
             label4.Name = "label4";
             label4.Size = new Size(78, 20);
             label4.TabIndex = 8;
             label4.Text = "فئة الصنف";
+            label4.Visible = false;
             // 
             // txtNotes
             // 
             txtNotes.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtNotes.Location = new Point(140, 319);
+            txtNotes.Location = new Point(140, 189);
             txtNotes.Margin = new Padding(3, 4, 3, 4);
             txtNotes.Multiline = true;
             txtNotes.Name = "txtNotes";
             txtNotes.Size = new Size(337, 41);
-            txtNotes.TabIndex = 29;
+            txtNotes.TabIndex = 22;
             // 
             // label3
             // 
             label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label3.AutoSize = true;
-            label3.Location = new Point(484, 319);
+            label3.Location = new Point(484, 189);
             label3.Name = "label3";
             label3.Size = new Size(67, 20);
-            label3.TabIndex = 28;
+            label3.TabIndex = 21;
             label3.Text = "ملاحظات";
             // 
             // txtItem_Desc
             // 
             txtItem_Desc.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtItem_Desc.Location = new Point(140, 87);
+            txtItem_Desc.Location = new Point(140, 81);
             txtItem_Desc.Margin = new Padding(3, 4, 3, 4);
             txtItem_Desc.Name = "txtItem_Desc";
             txtItem_Desc.Size = new Size(337, 27);
@@ -451,7 +468,7 @@
             // 
             label2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label2.AutoSize = true;
-            label2.Location = new Point(484, 87);
+            label2.Location = new Point(484, 81);
             label2.Name = "label2";
             label2.Size = new Size(83, 20);
             label2.TabIndex = 6;
@@ -481,11 +498,11 @@
             // btnOK
             // 
             btnOK.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnOK.Location = new Point(516, 458);
+            btnOK.Location = new Point(516, 322);
             btnOK.Margin = new Padding(3, 4, 3, 4);
             btnOK.Name = "btnOK";
             btnOK.Size = new Size(86, 31);
-            btnOK.TabIndex = 1;
+            btnOK.TabIndex = 2;
             btnOK.Text = "موافق";
             btnOK.UseVisualStyleBackColor = true;
             btnOK.Click += btnOK_Click;
@@ -493,11 +510,11 @@
             // btnCancel
             // 
             btnCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnCancel.Location = new Point(174, 458);
+            btnCancel.Location = new Point(174, 322);
             btnCancel.Margin = new Padding(3, 4, 3, 4);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(86, 31);
-            btnCancel.TabIndex = 2;
+            btnCancel.TabIndex = 3;
             btnCancel.Text = "الغاء امر";
             btnCancel.UseVisualStyleBackColor = true;
             btnCancel.Click += btnCancel_Click;
@@ -509,7 +526,7 @@
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(631, 55);
-            toolStrip1.TabIndex = 3;
+            toolStrip1.TabIndex = 0;
             toolStrip1.Text = "toolStrip1";
             // 
             // tsbtnDelete
@@ -552,7 +569,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(631, 505);
+            ClientSize = new Size(631, 369);
             Controls.Add(toolStrip1);
             Controls.Add(btnCancel);
             Controls.Add(btnOK);

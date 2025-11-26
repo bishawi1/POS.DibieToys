@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace POS.Windows.Lookups
+namespace POS.Teller.Lookups
 {
     public partial class BankForm : Form
     {

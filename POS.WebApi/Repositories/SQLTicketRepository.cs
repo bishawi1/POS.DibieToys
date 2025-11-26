@@ -166,6 +166,133 @@ namespace POS.WebApi.Repositories
             return ticketList;
         }
 
+        public async Task<Reserve_Toy_RoomModel> ReserveToysRookAsync(Reserve_Toy_RoomModel model)
+        {
+            int reserveToyRoomId=0;
+            using (var transaction = dbContext.Database.BeginTransaction())
+            {
+                try
+                {
+                    Reserve_Toy_RoomModel addedTickets = new Reserve_Toy_RoomModel();
+                    if (dbContext.Reserve_Toy_Room.Count() == 0)
+                    {
+                        reserveToyRoomId = 0;
+                    }
+                    else
+                    {
+                        reserveToyRoomId = dbContext.Reserve_Toy_Room.Max(r => r.Reserve_Toy_Room_ID);
+                    }
+                    reserveToyRoomId += 1;
+                    model.Reserve_Toy_Room_ID = reserveToyRoomId;
+                    await dbContext.Reserve_Toy_Room.AddAsync(model);
+                    await dbContext.SaveChangesAsync();
+                    transaction.Commit();
+                    return addedTickets;
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    throw ex;
+                }
+            }
+        }
+
+        public async Task<List<Reserve_Toy_RoomModel>> getReserveToysRoomAsync(ReserveToysRoomCriteriaViewModel criteria)
+        {
+            DateTime dtFromDate;
+            DateTime dtToDate;
+            List<Reserve_Toy_RoomModel> reservationList = new List<Reserve_Toy_RoomModel>();
+            var query = dbContext.Reserve_Toy_Room.AsQueryable();
+            if(!string.IsNullOrEmpty(criteria.Reserver_Name))
+            {
+                query = query.Where(r => r.Reserver_Name.Contains(criteria.Reserver_Name));
+            }
+            if(!string.IsNullOrEmpty(criteria.Notes))
+            {
+                query = query.Where(r => r.Notes .Contains(criteria.Notes));
+            }
+            if (criteria.Kids_No.HasValue)
+            {
+                query = query.Where(r => r.Kids_No == criteria.Kids_No.Value);
+            }
+            if (criteria.Reserve_Toy_Room_ID.HasValue)
+            {
+                query = query.Where(r => r.Reserve_Toy_Room_ID == criteria.Reserve_Toy_Room_ID.Value);
+            }
+            if (criteria.getWaitingOnly)
+            {
+                query = query.Where(r => r.Canceled == false && r.Done==false);
+                
+            }
+            if (criteria.getDoneOnly)
+            {
+                query = query.Where(r => r.Done == true);
+            }
+            if (criteria.getCanceledOnly)
+            {
+                query = query.Where(r => r.Canceled == true);
+            }
+            //if (!string.IsNullOrEmpty(criteria.FromDate))
+            //{
+            //    dtFromDate = General.convertToDate(criteria.FromDate);
+            //    query = query.Where(r => r.Ticket_Date >= dtFromDate);
+            //}
+            //if (!string.IsNullOrEmpty(criteria.ToDate))
+            //{
+            //    dtToDate = General.convertToDate(criteria.ToDate);
+            //    query = query.Where(r => r.Ticket_Date < dtToDate.AddDays(1));
+            //}
+
+            reservationList = await query.ToListAsync();
+            return reservationList;
+
+        }
+
+        public async Task<Reserve_Toy_RoomModel> getReserveToysRoomIdAsync(int reserveToyRoomId)
+        {
+            return await dbContext.Reserve_Toy_Room.FirstOrDefaultAsync(r => r.Reserve_Toy_Room_ID == reserveToyRoomId);
+        }
+
+        public async Task<Reserve_Toy_RoomModel?> updateReserveToysRoomAsync(int reserveToyRoomId, Reserve_Toy_RoomModel model)
+        {
+            dbContext.Reserve_Toy_Room.Update(model);
+            await dbContext.SaveChangesAsync();
+            return model;
+        }
+        public async Task<Reserve_Toy_RoomModel?> CancelReserveToysRoomAsync(int reserveToyRoomId)
+        {
+            Reserve_Toy_RoomModel model = await dbContext.Reserve_Toy_Room.FirstOrDefaultAsync(r => r.Reserve_Toy_Room_ID == reserveToyRoomId);
+            if(model== null)
+            {
+                throw new Exception("Not Found");
+            }
+            else
+            {
+                model.Canceled=true;
+                model.Done = false;
+                dbContext.Reserve_Toy_Room.Update(model);
+                await dbContext.SaveChangesAsync();
+                return model;
+            }
+        }
+
+        public async Task<Reserve_Toy_RoomModel> DoReserveToysRoomAsync(int reserveToyRoomId)
+        {
+            Reserve_Toy_RoomModel model = await dbContext.Reserve_Toy_Room.FirstOrDefaultAsync(r => r.Reserve_Toy_Room_ID == reserveToyRoomId);
+            if (model == null)
+            {
+                throw new Exception("Not Found");
+            }
+            else
+            {
+                model.Canceled = false;
+                model.Done = true;
+                dbContext.Reserve_Toy_Room.Update(model);
+                await dbContext.SaveChangesAsync();
+                return model;
+            }
+
+        }
     }
 }
 

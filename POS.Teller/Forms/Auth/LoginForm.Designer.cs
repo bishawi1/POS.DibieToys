@@ -1,4 +1,4 @@
-﻿namespace POS.Windows
+﻿namespace POS.Teller
 {
     partial class LoginForm
     {

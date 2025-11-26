@@ -57,7 +57,7 @@
             panel1.Controls.Add(txtToTicketDate);
             panel1.Controls.Add(label6);
             panel1.Controls.Add(txtFromTicketDate);
-            panel1.Location = new Point(57, 21);
+            panel1.Location = new Point(61, 12);
             panel1.Name = "panel1";
             panel1.Size = new Size(670, 74);
             panel1.TabIndex = 0;
@@ -130,12 +130,12 @@
             grdTicketList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             grdTicketList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             grdTicketList.Columns.AddRange(new DataGridViewColumn[] { colTicket_ID, colTicket_Date, colBatch_No, colAmount, colDiscount, colKids_Count, colTicket_No });
-            grdTicketList.Location = new Point(26, 116);
+            grdTicketList.Location = new Point(26, 92);
             grdTicketList.Name = "grdTicketList";
             grdTicketList.ReadOnly = true;
             grdTicketList.RowHeadersWidth = 51;
             grdTicketList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            grdTicketList.Size = new Size(701, 463);
+            grdTicketList.Size = new Size(701, 487);
             grdTicketList.TabIndex = 1;
             // 
             // colTicket_ID

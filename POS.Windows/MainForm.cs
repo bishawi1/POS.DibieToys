@@ -229,5 +229,13 @@ namespace POS.Windows
             frm.initForm();
             frm.Show();
         }
+
+        private void tsbtnShowToysRoomReservation_Click(object sender, EventArgs e)
+        {
+            ReservToysRoomListForm frm = new ReservToysRoomListForm();
+            frm.MdiParent = this;
+            frm.initForm();
+            frm.Show();
+        }
     }
 }

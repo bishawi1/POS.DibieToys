@@ -29,71 +29,70 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            menuStrip1 = new MenuStrip();
             toolStrip1 = new ToolStrip();
             toolStripButton1 = new ToolStripButton();
             tsbtnBackSales = new ToolStripButton();
             tsbtnTicket = new ToolStripButton();
             timer1 = new System.Windows.Forms.Timer(components);
+            tsbtnReserveToysRoom = new ToolStripButton();
             toolStrip1.SuspendLayout();
             SuspendLayout();
-            // 
-            // menuStrip1
-            // 
-            menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(859, 24);
-            menuStrip1.TabIndex = 1;
-            menuStrip1.Text = "menuStrip1";
             // 
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(48, 48);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton1, tsbtnBackSales, tsbtnTicket });
-            toolStrip1.Location = new Point(0, 24);
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton1, tsbtnBackSales, tsbtnTicket, tsbtnReserveToysRoom });
+            toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(859, 55);
+            toolStrip1.Size = new Size(752, 55);
             toolStrip1.TabIndex = 2;
             toolStrip1.Text = "toolStrip1";
             // 
             // toolStripButton1
             // 
-            toolStripButton1.Image = Properties.Resources.icons8_basket_100;
+            toolStripButton1.Image = Teller.Properties.Resources.icons8_basket_100;
             toolStripButton1.ImageTransparentColor = Color.Magenta;
             toolStripButton1.Name = "toolStripButton1";
-            toolStripButton1.Size = new Size(116, 52);
+            toolStripButton1.Size = new Size(102, 52);
             toolStripButton1.Text = "المبيعات";
             toolStripButton1.Click += toolStripButton1_Click;
             // 
             // tsbtnBackSales
             // 
-            tsbtnBackSales.Image = Properties.Resources.icons8_back_basket_100;
+            tsbtnBackSales.Image = Teller.Properties.Resources.icons8_back_basket_100;
             tsbtnBackSales.ImageTransparentColor = Color.Magenta;
             tsbtnBackSales.Name = "tsbtnBackSales";
-            tsbtnBackSales.Size = new Size(124, 52);
+            tsbtnBackSales.Size = new Size(108, 52);
             tsbtnBackSales.Text = "رد مبيعات";
             tsbtnBackSales.Click += tsbtnBackSales_Click;
             // 
             // tsbtnTicket
             // 
-            tsbtnTicket.Image = Properties.Resources.ticket;
+            tsbtnTicket.Image = Teller.Properties.Resources.ticket;
             tsbtnTicket.ImageTransparentColor = Color.Magenta;
             tsbtnTicket.Name = "tsbtnTicket";
-            tsbtnTicket.Size = new Size(101, 52);
+            tsbtnTicket.Size = new Size(90, 52);
             tsbtnTicket.Text = "التذاكر";
             tsbtnTicket.Click += tsbtnTicket_Click;
             // 
+            // tsbtnReserveToysRoom
+            // 
+            tsbtnReserveToysRoom.Image = Teller.Properties.Resources.icons8_reservation_50;
+            tsbtnReserveToysRoom.ImageTransparentColor = Color.Magenta;
+            tsbtnReserveToysRoom.Name = "tsbtnReserveToysRoom";
+            tsbtnReserveToysRoom.Size = new Size(141, 52);
+            tsbtnReserveToysRoom.Text = "حجز قاعة الالعاب";
+            tsbtnReserveToysRoom.Click += tsbtnReserveToysRoom_Click;
+            // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(859, 545);
+            ClientSize = new Size(752, 409);
             Controls.Add(toolStrip1);
-            Controls.Add(menuStrip1);
             IsMdiContainer = true;
             KeyPreview = true;
-            MainMenuStrip = menuStrip1;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "MainForm";
             RightToLeft = RightToLeft.Yes;
             StartPosition = FormStartPosition.CenterScreen;
@@ -107,12 +106,11 @@
         }
 
         #endregion
-
-        private MenuStrip menuStrip1;
         private ToolStrip toolStrip1;
         private ToolStripButton toolStripButton1;
         private System.Windows.Forms.Timer timer1;
         private ToolStripButton tsbtnTicket;
         private ToolStripButton tsbtnBackSales;
+        private ToolStripButton tsbtnReserveToysRoom;
     }
 }

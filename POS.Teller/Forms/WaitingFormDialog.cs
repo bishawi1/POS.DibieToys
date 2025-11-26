@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace POS.Windows
+namespace POS.Teller
 {
     
     public partial class WaitingFormDialog : Form

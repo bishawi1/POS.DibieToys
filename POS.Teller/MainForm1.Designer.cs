@@ -30,10 +30,10 @@
         {
             components = new System.ComponentModel.Container();
             btnCloseWindow = new Button();
-            mainCategoryComponent = new POS.Windows.Components.CategoryComponent();
+            mainCategoryComponent = new POS.Teller.Components.CategoryComponent();
             cmbMainItemCategory = new ComboBox();
-            subCategoryComponent = new POS.Windows.Components.CategoryComponent();
-            categoryProductComponent1 = new POS.Windows.Components.CategoryProductComponent();
+            subCategoryComponent = new POS.Teller.Components.CategoryComponent();
+            categoryProductComponent1 = new POS.Teller.Components.CategoryProductComponent();
             timer1 = new System.Windows.Forms.Timer(components);
             panel1 = new Panel();
             button1 = new Button();
@@ -288,10 +288,10 @@
         #endregion
 
         private Button btnCloseWindow;
-        private POS.Windows.Components.CategoryComponent mainCategoryComponent;
+        private POS.Teller.Components.CategoryComponent mainCategoryComponent;
         private ComboBox cmbMainItemCategory;
-        private POS.Windows.Components.CategoryComponent subCategoryComponent;
-        private Components.CategoryProductComponent categoryProductComponent1;
+        private POS.Teller.Components.CategoryComponent subCategoryComponent;
+        private POS.Teller.Components.CategoryProductComponent categoryProductComponent1;
         private System.Windows.Forms.Timer timer1;
         private Panel panel1;
         private Panel pnlQuickAccessButtons;

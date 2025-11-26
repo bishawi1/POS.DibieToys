@@ -1,7 +1,7 @@
 ﻿using Microsoft.Identity.Client;
 using POS.Shared.Models;
+using POS.Teller.Components.ViewModels;
 using POS.Windows.Components;
-using POS.Windows.Components.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace POS.Windows.Components
+namespace POS.Teller.Components
 {
     public partial class CategoryComponent : UserControl
     {

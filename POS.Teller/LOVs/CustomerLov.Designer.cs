@@ -1,4 +1,4 @@
-﻿namespace POS.Windows.LOVs
+﻿namespace POS.Teller.LOVs
 {
     partial class CustomerLov
     {

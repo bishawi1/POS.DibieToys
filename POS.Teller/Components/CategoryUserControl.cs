@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace POS.Windows.Components
+namespace POS.Teller.Components
 {
     public partial class CategoryUserControl : UserControl
     {

@@ -55,6 +55,7 @@ namespace POS.WebApi.Data
         public DbSet<Branch_Model> Branch { get; set; }
         public DbSet<vBranch_Item_UnitModel> vBranch_Item_Unit { get; set; }
         public DbSet<TicketModel> Ticket { get; set; }
+        public DbSet<Reserve_Toy_RoomModel> Reserve_Toy_Room { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
@@ -111,6 +112,7 @@ namespace POS.WebApi.Data
             builder.Entity<Branch_Model>().ToTable("Branch", "POS");
             builder.Entity<vBranch_Item_UnitModel>().ToTable("vBranch_Item_Unit", "POS");
             builder.Entity<TicketModel>().ToTable("Ticket", "POS");
+            builder.Entity<Reserve_Toy_RoomModel>().ToTable("Reserve_Toy_Room", "POS");
         }
     }
 }

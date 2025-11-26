@@ -12,6 +12,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="MainForm1.cs" />
+    <Compile Remove="MainForm1.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="MainForm1.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="ReportViewerCore.WinForms" Version="15.1.26" />
   </ItemGroup>
@@ -28,6 +37,12 @@
       <DependentUpon>db_a61e19_alkamalposDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Update="Forms\Auth\ChangePasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\ReserveToysRoomDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\ReservToysRoomListForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Properties\Resources.Designer.cs">

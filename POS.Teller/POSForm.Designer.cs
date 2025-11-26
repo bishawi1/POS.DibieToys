@@ -1,4 +1,4 @@
-﻿namespace POS.Windows
+﻿namespace POS.Teller
 {
     partial class POSForm
     {
@@ -35,9 +35,9 @@
             toolStripButton1 = new ToolStripButton();
             tsbtnRemoveInvoice = new ToolStripButton();
             tsbtnPrevInvoices = new ToolStripButton();
-            subCategoryComponent = new POS.Windows.Components.CategoryComponent();
+            subCategoryComponent = new POS.Teller.Components.CategoryComponent();
             timer1 = new System.Windows.Forms.Timer(components);
-            categoryProductComponent1 = new POS.Windows.Components.CategoryProductComponent();
+            categoryProductComponent1 = new POS.Teller.Components.CategoryProductComponent();
             pnlInvoices = new Panel();
             panel1 = new Panel();
             pnlPayWayLIst = new Panel();

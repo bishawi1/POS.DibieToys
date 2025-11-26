@@ -1,4 +1,4 @@
-﻿namespace POS.Windows.Lookups
+﻿namespace POS.Teller.Lookups
 {
     partial class BankForm
     {

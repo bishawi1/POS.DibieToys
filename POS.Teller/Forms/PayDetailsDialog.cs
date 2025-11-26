@@ -1,4 +1,5 @@
-﻿using POS.Windows.Forms;
+﻿using POS.Teller.LOVs;
+using POS.Windows.Forms;
 using POS.Windows.LOVs;
 using System;
 using System.Collections.Generic;

@@ -213,6 +213,16 @@ namespace POS.Windows.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_reservation_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-reservation-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_sales_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8-sales-50", resourceCulture);

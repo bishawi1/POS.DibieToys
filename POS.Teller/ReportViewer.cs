@@ -5,7 +5,7 @@ using System.Data;
 using System.Drawing.Imaging;
 using System.Drawing.Printing;
 
-namespace POS.Windows
+namespace POS.Teller
 {
     public partial class ReportViewer : Form
     {

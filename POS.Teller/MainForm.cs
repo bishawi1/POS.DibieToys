@@ -1,4 +1,6 @@
 ﻿using POS.Shared.Models;
+using POS.Teller;
+using POS.Teller.Forms;
 using POS.Windows.Forms;
 using System;
 using System.Collections.Generic;
@@ -45,7 +47,7 @@ namespace POS.Windows
             {
                 if (General.branchId == 2)
                 {
-                    tsbtnTicket.Visible=false;
+                    tsbtnTicket.Visible = false;
                 }
                 //mainCategoryComponent.pnlContentBase.BackColor = Color.White;
                 //initForm();
@@ -73,6 +75,14 @@ namespace POS.Windows
             POSForm frm = new POSForm();
             frm.initForm(true);
             frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void tsbtnReserveToysRoom_Click(object sender, EventArgs e)
+        {
+            ReservToysRoomListForm frm = new ReservToysRoomListForm();
+            frm.MdiParent = this;
+            frm.initForm();
             frm.Show();
         }
     }

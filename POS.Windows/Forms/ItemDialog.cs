@@ -181,6 +181,40 @@ namespace POS.Windows.Forms
             }
             return boolValid;
         }
+        private async Task<bool> addTransaction()
+        {
+            bool boolSaved = false;
+            try
+            {
+                AddSupply_TransactionRequestDto requestDto = new AddSupply_TransactionRequestDto();
+                requestDto.Branch_ID = Constants.MainBranchId;// Convert.ToByte(cmbBranch_ID.SelectedValue);
+                requestDto.QNT = Constants.DefaultSupplyQnt;// Convert.ToInt32(txtQNT.Text);
+                requestDto.Transaction_Notes =string.Empty; //txtTransaction_Notes.Text.Trim();
+                requestDto.Transaction_Date = DateTime.Today;// txtTransaction_Date.Value;
+                requestDto.Source_ID = 0;// Convert.ToInt16(txtSource_ID.Text);
+                requestDto.Item_Unit_ID = 4;// Convert.ToInt32(txtItem_Unit_ID.Text);
+                requestDto.IsActive = true;
+                requestDto.User_Name = General.userSession.UserName;
+                ResultModel result = await Client.SupplyTransactionRepository.add(requestDto);
+                if (result.StatusCode == "200")
+                {
+                    if (result.Data != null)
+                    {
+                        boolSaved = true;
+                    }
+                }
+                else
+                {
+                    throw new Exception(result.ErrorText);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+            return boolSaved;
+        }
+
         private async Task<bool> addItem()
         {
             bool boolSaved = false;
@@ -212,6 +246,7 @@ namespace POS.Windows.Forms
             {
                 //ItemRepository repository = new ItemRepository();
                 await ItemRepository.add(model);
+                await addTransaction();
                 boolSaved = true;
             }
             catch (Exception ex)
@@ -281,17 +316,17 @@ namespace POS.Windows.Forms
         private void clearScreen()
         {
             txtBarcode.Text = string.Empty;
-            txtItem_Brand_ID.Text = string.Empty;
+            txtItem_Brand_ID.Text = "0";// string.Empty;
             txtItem_Brand_Name.Text = string.Empty;
             txtItem_Desc.Text = string.Empty;
             txtItem_Group_Desc.Text = string.Empty;
-            txtItem_Group_ID.Text = string.Empty;
+            txtItem_Group_ID.Text = "6";//string.Empty;
             txtItem_Unit_Cost.Text = string.Empty;
             txtItem_Unit_Price.Text = string.Empty;
             txtNotes.Text = string.Empty;
             txtUnit_Desc.Text = string.Empty;
             txtUnit_ID.Text = string.Empty;
-            txtSource_ID.Text = string.Empty;
+            txtSource_ID.Text = "0";// string.Empty;
             txtSource_Name.Text = string.Empty;
             chkQuickAccess.Checked = false;
         }
@@ -308,23 +343,24 @@ namespace POS.Windows.Forms
                 txtUnit_Desc.Text = defaultUnitDesc;
             }
 
-            if (!string.IsNullOrEmpty(defaultItemBrandId))
-            {
-                txtItem_Brand_ID.Text = defaultItemBrandId;
-                txtItem_Brand_Name.Text = defaultItemBrandName;
-            }
-
-            if (!string.IsNullOrEmpty(defaultItemGroupId))
-            {
-                txtItem_Group_ID.Text = defaultItemGroupId;
-                txtItem_Group_Desc.Text = defaultItemGroupDesc;
-            }
-            if (!string.IsNullOrEmpty(defaultSource_ID))
-            {
-                txtSource_ID.Text = defaultSource_ID;
-                txtSource_Name.Text = defaultSourceName;
-            }
-
+            //if (!string.IsNullOrEmpty(defaultItemBrandId))
+            //{
+            //    txtItem_Brand_ID.Text = defaultItemBrandId;
+            //    txtItem_Brand_Name.Text = defaultItemBrandName;
+            //}
+            txtItem_Brand_ID.Text = "0";
+            //if (!string.IsNullOrEmpty(defaultItemGroupId))
+            //{
+            //    txtItem_Group_ID.Text = defaultItemGroupId;
+            //    txtItem_Group_Desc.Text = defaultItemGroupDesc;
+            //}
+            txtItem_Group_ID.Text = "6";
+            //if (!string.IsNullOrEmpty(defaultSource_ID))
+            //{
+            //    txtSource_ID.Text = defaultSource_ID;
+            //    txtSource_Name.Text = defaultSourceName;
+            //}
+            txtSource_ID.Text = "0";
         }
         public void InitForm()
         {

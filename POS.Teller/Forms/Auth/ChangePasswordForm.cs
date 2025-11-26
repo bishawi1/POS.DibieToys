@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace POS.Windows.Auth
+namespace POS.Teller.Auth
 {
     public partial class ChangePasswordForm : Form
     {

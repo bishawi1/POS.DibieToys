@@ -1,4 +1,4 @@
-﻿namespace POS.Windows.Components
+﻿namespace POS.Teller.Components
 {
     partial class CategoryComponent
     {

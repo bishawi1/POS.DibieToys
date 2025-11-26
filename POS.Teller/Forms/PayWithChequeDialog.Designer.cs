@@ -1,4 +1,4 @@
-﻿namespace POS.Windows.Forms
+﻿namespace POS.Teller.Forms
 {
     partial class PayWithChequeDialog
     {

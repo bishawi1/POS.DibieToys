@@ -33,6 +33,7 @@
             btnOK = new Button();
             btnCancel = new Button();
             panel1 = new Panel();
+            btnShow_Item_Group_ID_LOV = new Button();
             btnGetData = new Button();
             imageList1 = new ImageList(components);
             txtBarcode = new TextBox();
@@ -54,7 +55,6 @@
             label10 = new Label();
             txtSupply_Transaction_ID = new TextBox();
             label1 = new Label();
-            btnShow_Item_Group_ID_LOV = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -109,6 +109,19 @@
             panel1.Size = new Size(436, 323);
             panel1.TabIndex = 2;
             // 
+            // btnShow_Item_Group_ID_LOV
+            // 
+            btnShow_Item_Group_ID_LOV.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnShow_Item_Group_ID_LOV.Image = Properties.Resources.List;
+            btnShow_Item_Group_ID_LOV.Location = new Point(54, 17);
+            btnShow_Item_Group_ID_LOV.Margin = new Padding(3, 4, 3, 4);
+            btnShow_Item_Group_ID_LOV.Name = "btnShow_Item_Group_ID_LOV";
+            btnShow_Item_Group_ID_LOV.Size = new Size(62, 48);
+            btnShow_Item_Group_ID_LOV.TabIndex = 51;
+            btnShow_Item_Group_ID_LOV.TabStop = false;
+            btnShow_Item_Group_ID_LOV.UseVisualStyleBackColor = true;
+            btnShow_Item_Group_ID_LOV.Click += btnShow_Item_Group_ID_LOV_Click;
+            // 
             // btnGetData
             // 
             btnGetData.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -140,6 +153,7 @@
             txtBarcode.Name = "txtBarcode";
             txtBarcode.Size = new Size(172, 34);
             txtBarcode.TabIndex = 49;
+            txtBarcode.KeyDown += txtBarcode_KeyDown;
             // 
             // label6
             // 
@@ -331,19 +345,6 @@
             label1.TabIndex = 0;
             label1.Text = "الرمز";
             label1.Visible = false;
-            // 
-            // btnShow_Item_Group_ID_LOV
-            // 
-            btnShow_Item_Group_ID_LOV.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnShow_Item_Group_ID_LOV.Image = Properties.Resources.List;
-            btnShow_Item_Group_ID_LOV.Location = new Point(54, 17);
-            btnShow_Item_Group_ID_LOV.Margin = new Padding(3, 4, 3, 4);
-            btnShow_Item_Group_ID_LOV.Name = "btnShow_Item_Group_ID_LOV";
-            btnShow_Item_Group_ID_LOV.Size = new Size(62, 48);
-            btnShow_Item_Group_ID_LOV.TabIndex = 51;
-            btnShow_Item_Group_ID_LOV.TabStop = false;
-            btnShow_Item_Group_ID_LOV.UseVisualStyleBackColor = true;
-            btnShow_Item_Group_ID_LOV.Click += btnShow_Item_Group_ID_LOV_Click;
             // 
             // SupplyTransactionDialog
             // 

@@ -14,7 +14,7 @@ using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace POS.Windows.Forms
+namespace POS.Teller.Forms
 {
     public partial class TicketDialog : Form
     {
@@ -100,9 +100,10 @@ namespace POS.Windows.Forms
             //    tickets.Add(ticket);
             //};
             DataTable dt = General.ConvertToDataTable(tickets);
-            ReportViewer report = new ReportViewer();
-            report.initForm(dt.Copy(), General.getStartupPath() + @"\Reports\TicketReport.rdlc", null);
-            report.Show();
+            //ReportViewer report = new ReportViewer();
+            //report.initForm(dt.Copy(), General.getStartupPath() + @"\Reports\TicketReport.rdlc", null);
+            //report.Show();
+            ReportViewer.PrintToPrinter(dt.Copy(), General.getStartupPath() + @"\Reports\TicketReport.rdlc", null);
         }
         private void btnOK_Click(object sender, EventArgs e)
         {

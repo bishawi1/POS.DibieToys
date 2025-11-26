@@ -50,8 +50,6 @@ namespace POS.Client
             }
 
             return oResult;
-
-
         }
 
         public static ResultModel addItemBrand(AddItemBrandRequestDto model)

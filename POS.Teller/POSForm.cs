@@ -4,9 +4,9 @@ using POS.Shared;
 using POS.Shared.DTOs;
 using POS.Shared.Models;
 using POS.Shared.ViewModels;
+using POS.Teller.Components;
 using POS.Teller.ViewModel;
-using POS.Windows.Components;
-using POS.Windows.Components.ViewModels;
+using POS.Teller.Components.ViewModels;
 using POS.Windows.Forms;
 using System;
 using System.Collections.Generic;
@@ -17,8 +17,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using POS.Teller.Forms;
 
-namespace POS.Windows
+namespace POS.Teller
 {
     public partial class POSForm : Form
     {
@@ -43,7 +44,7 @@ namespace POS.Windows
 
             List<Item_GroupModel> list = General.retSubItemGroupList(0);
             subCategoryComponent.clearContent();
-            subCategoryComponent.drawCategories(list, new Components.ViewModels.RoundedButtonStyleViewModel
+            subCategoryComponent.drawCategories(list, new RoundedButtonStyleViewModel
             {
                 ButtonHeight = 50,
                 TextColor = Color.Black,
@@ -269,7 +270,26 @@ namespace POS.Windows
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            currentInvoice.fireSaveInvoiceWithoutPrint();
+            if (paidAmountList != null)
+            {
+                List<SaleTransactionPaidAmountDto> AmountList = new List<SaleTransactionPaidAmountDto>();
+                foreach (var payWay in paidAmountList)
+                {
+                    if (payWay.Amount > 0)
+                    {
+                        AmountList.Add(new SaleTransactionPaidAmountDto
+                        {
+                            PayWayId = Convert.ToByte(payWay.PayWayID),
+                            Amount = payWay.Amount
+                        });
+                    }
+                }
+                currentInvoice.fireSaveInvoiceWithoutPrint(AmountList);
+            }
+            else
+            {
+                currentInvoice.fireSaveInvoiceWithoutPrint();
+            }
         }
         private void showSoldItemComponent(CheckBox button)
         {

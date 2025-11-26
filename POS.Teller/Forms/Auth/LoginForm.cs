@@ -2,8 +2,9 @@
 using POS.Shared.DTOs;
 using POS.Shared.Models;
 using POS.Teller;
+using POS.Teller.Auth;
+using POS.Teller.Forms;
 using POS.Teller.ViewModel;
-using POS.Windows.Auth;
 using POS.Windows.Forms;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace POS.Windows
+namespace POS.Teller
 {
     public partial class LoginForm : Form
     {

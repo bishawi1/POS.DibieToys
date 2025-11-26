@@ -1,4 +1,5 @@
-﻿using POS.Windows.LOVs;
+﻿using POS.Teller.LOVs;
+using POS.Windows.LOVs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace POS.Windows.Forms
+namespace POS.Teller.Forms
 {
     public partial class DebitSalesDialog : Form
     {

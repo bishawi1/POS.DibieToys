@@ -4,6 +4,7 @@ using POS.Shared.DTOs;
 using POS.Shared.Models;
 using POS.Shared.Models.Auth;
 using POS.Shared.ViewModels;
+using POS.Teller;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -14,7 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace POS.Windows
+namespace POS.Teller
 {
     public class General
     {

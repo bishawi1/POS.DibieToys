@@ -7,9 +7,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
-namespace POS.Windows.Forms
+namespace POS.Teller.Forms
 {
     public partial class PayWithChequeDialog : Form
     {

@@ -41,6 +41,8 @@ namespace POS.Windows
         {
             //ItemListCriteriaViewModel criteria = new ItemListCriteriaViewModel();
             Branch_ItemListCriteriaViewModel criteria = new Branch_ItemListCriteriaViewModel();
+            if(txtItemId.Value>0)
+                criteria.Item_ID= Convert.ToInt32(txtItemId.Value);
             if (!string.IsNullOrEmpty(txtBarcode.Text))
                 criteria.Barcode = txtBarcode.Text.Trim();
             if (!string.IsNullOrEmpty(txtItem_Desc.Text.Trim()))

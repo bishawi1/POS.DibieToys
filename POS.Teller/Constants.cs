@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace POS.Windows
+namespace POS.Teller
 {
     public class Constants
     {

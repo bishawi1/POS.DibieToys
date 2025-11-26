@@ -9,7 +9,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.ComponentModel;
 
-namespace POS.Windows.Components
+namespace POS.Teller.Components
 {
     public class RoundedButton:Button
     {

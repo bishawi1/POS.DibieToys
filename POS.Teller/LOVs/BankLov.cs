@@ -1,6 +1,7 @@
 ﻿
 
-using POS.Windows.Lookups;
+using POS.Teller;
+using POS.Teller.Lookups;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

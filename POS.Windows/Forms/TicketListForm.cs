@@ -34,7 +34,7 @@ namespace POS.Windows.Forms
             {
                 criteria.ToDate = $"{txtToTicketDate.Value.Day}-{txtToTicketDate.Value.Month}-{txtToTicketDate.Value.Year}";
             }
-            ResultModel result= await Client.TicketRepository.getAllAsync(criteria);
+            ResultModel result = await Client.TicketRepository.getAllAsync(criteria);
             if (result != null)
             {
                 if (result.StatusCode == "200")
@@ -57,6 +57,10 @@ namespace POS.Windows.Forms
         private void btnApplySearch_Click(object sender, EventArgs e)
         {
             applySearch();
+        }
+
+        private void btnReservationList_Click(object sender, EventArgs e)
+        {
         }
     }
 }

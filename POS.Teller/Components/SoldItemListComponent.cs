@@ -6,8 +6,8 @@ using POS.Shared;
 using POS.Shared.DTOs;
 using POS.Shared.Models;
 using POS.Shared.ViewModels;
+using POS.Teller.Forms;
 using POS.Teller.ViewModel;
-using POS.Windows.Components.ViewModels;
 using POS.Windows.Forms;
 using POS.Windows.Reports;
 using System;
@@ -24,7 +24,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace POS.Windows.Components
+namespace POS.Teller.Components
 {
     public partial class SoldItemListComponent : UserControl
     {
@@ -678,7 +678,8 @@ namespace POS.Windows.Components
         private void lblTotalAmount_Paint(object sender, PaintEventArgs e)
         {
         }
-        public async void fireSaveInvoiceWithoutPrint()
+
+        public async void fireSaveInvoiceWithoutPrint(List<SaleTransactionPaidAmountDto> PaidAmountList = null)
         {
             if (grdItemList.Rows.Count == 0)
             {
@@ -686,7 +687,7 @@ namespace POS.Windows.Components
             }
             else
             {
-                if (await saveInvoice() > 0)
+                if (await saveInvoice(PaidAmountList) > 0)
                 {
                     OnInvoiceSaved?.Invoke(this, null);
 
