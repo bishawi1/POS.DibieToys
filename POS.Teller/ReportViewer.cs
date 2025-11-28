@@ -38,8 +38,9 @@ namespace POS.Teller
 
             print(report, pageSettings);
         }
-        public static void print(LocalReport report, PageSettings pageSettings)
+        public static void print(LocalReport report, PageSettings pageSettings, string printerName="")
         {
+
             string deviceInfo =
               $@"<DeviceInfo>
                 <OutputFormat>EMF</OutputFormat>

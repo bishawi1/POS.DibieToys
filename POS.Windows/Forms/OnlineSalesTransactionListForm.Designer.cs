@@ -68,6 +68,8 @@
             label5 = new Label();
             lblRemainAmount = new Label();
             panel1 = new Panel();
+            label6 = new Label();
+            cmbBranch = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)grdVoucherList).BeginInit();
             toolStrip1.SuspendLayout();
             panel1.SuspendLayout();
@@ -398,7 +400,7 @@
             // 
             btnShow_Person_ID_LOV.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnShow_Person_ID_LOV.Image = Properties.Resources.List;
-            btnShow_Person_ID_LOV.Location = new Point(387, 49);
+            btnShow_Person_ID_LOV.Location = new Point(56, 53);
             btnShow_Person_ID_LOV.Margin = new Padding(3, 4, 3, 4);
             btnShow_Person_ID_LOV.Name = "btnShow_Person_ID_LOV";
             btnShow_Person_ID_LOV.Size = new Size(31, 31);
@@ -409,7 +411,7 @@
             // txtPerson_No
             // 
             txtPerson_No.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtPerson_No.Location = new Point(425, 49);
+            txtPerson_No.Location = new Point(83, 57);
             txtPerson_No.Margin = new Padding(3, 4, 3, 4);
             txtPerson_No.Mask = "00000";
             txtPerson_No.Name = "txtPerson_No";
@@ -420,11 +422,11 @@
             // 
             lblPerson_Name.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblPerson_Name.BackColor = Color.White;
-            lblPerson_Name.Location = new Point(146, 49);
+            lblPerson_Name.Location = new Point(3, 53);
             lblPerson_Name.Margin = new Padding(3, 4, 3, 4);
             lblPerson_Name.Name = "lblPerson_Name";
             lblPerson_Name.ReadOnly = true;
-            lblPerson_Name.Size = new Size(236, 27);
+            lblPerson_Name.Size = new Size(47, 27);
             lblPerson_Name.TabIndex = 35;
             lblPerson_Name.TabStop = false;
             // 
@@ -432,7 +434,7 @@
             // 
             lblPerson.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblPerson.AutoSize = true;
-            lblPerson.Location = new Point(478, 49);
+            lblPerson.Location = new Point(30, 60);
             lblPerson.Name = "lblPerson";
             lblPerson.Size = new Size(47, 20);
             lblPerson.TabIndex = 32;
@@ -462,6 +464,8 @@
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(label6);
+            panel1.Controls.Add(cmbBranch);
             panel1.Controls.Add(btnShow_Person_ID_LOV);
             panel1.Controls.Add(txtPerson_No);
             panel1.Controls.Add(lblPerson_Name);
@@ -478,6 +482,25 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(811, 102);
             panel1.TabIndex = 38;
+            // 
+            // label6
+            // 
+            label6.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label6.AutoSize = true;
+            label6.Location = new Point(478, 48);
+            label6.Name = "label6";
+            label6.Size = new Size(41, 20);
+            label6.TabIndex = 37;
+            label6.Text = "الفرع";
+            // 
+            // cmbBranch
+            // 
+            cmbBranch.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbBranch.FormattingEnabled = true;
+            cmbBranch.Location = new Point(248, 48);
+            cmbBranch.Name = "cmbBranch";
+            cmbBranch.Size = new Size(222, 28);
+            cmbBranch.TabIndex = 36;
             // 
             // OnlineSalesTransactionListForm
             // 
@@ -561,5 +584,7 @@
         public ComboBox cmbSalesType;
         public ComboBox cmbPayStatusId;
         private Panel panel1;
+        private Label label6;
+        private ComboBox cmbBranch;
     }
 }

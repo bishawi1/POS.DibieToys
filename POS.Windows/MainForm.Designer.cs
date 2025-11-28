@@ -255,6 +255,7 @@
             tsbtnDashboard.Name = "tsbtnDashboard";
             tsbtnDashboard.Size = new Size(137, 36);
             tsbtnDashboard.Text = "ملخص الاعمال";
+            tsbtnDashboard.Visible = false;
             tsbtnDashboard.Click += tsbtnDashboard_Click;
             // 
             // tsbtnShowToysRoomReservation

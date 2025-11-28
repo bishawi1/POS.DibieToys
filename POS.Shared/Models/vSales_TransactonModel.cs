@@ -12,7 +12,7 @@ namespace POS.Shared.Models
         [Key]
         public int Sale_Transaction_ID { get; set; }
         public short Teller_ID { get; set; }
-
+        public byte Branch_ID { get; set; }
         public short Customer_ID { get; set; }
         public string Customer_NO { get; set; }
         public string Customer_Name { get; set; }

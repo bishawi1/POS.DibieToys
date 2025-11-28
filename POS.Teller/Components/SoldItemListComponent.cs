@@ -307,7 +307,6 @@ namespace POS.Teller.Components
         private void printInvoice(DataTable invoiceDataTable)
         {
             ReportViewer.PrintToPrinter(invoiceDataTable, General.getStartupPath() + @"\Reports\InvoiceReport.rdlc", null);
-
             //ReportViewer report = new ReportViewer();
             //report.initForm(invoiceDataTable.Copy(), General.getStartupPath() + @"\Reports\InvoiceReport.rdlc", null);
             //report.Show();

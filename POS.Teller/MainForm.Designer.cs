@@ -33,8 +33,8 @@
             toolStripButton1 = new ToolStripButton();
             tsbtnBackSales = new ToolStripButton();
             tsbtnTicket = new ToolStripButton();
-            timer1 = new System.Windows.Forms.Timer(components);
             tsbtnReserveToysRoom = new ToolStripButton();
+            timer1 = new System.Windows.Forms.Timer(components);
             toolStrip1.SuspendLayout();
             SuspendLayout();
             // 

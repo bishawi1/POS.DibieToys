@@ -12,6 +12,7 @@ namespace POS.Shared.ViewModels
         public int? Sale_Transaction_ID { get; set; }
         public short? Teller_ID { get; set; }
         public int? Sale_Transaction_No { get; set; }
+        public byte? BranchId { get; set; }
 
         public string? From_Transaction_Date { get; set; }
         public string? To_Transaction_Date { get; set; } 

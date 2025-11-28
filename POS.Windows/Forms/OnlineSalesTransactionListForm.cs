@@ -40,6 +40,7 @@ namespace POS.Windows.Forms
         private async Task getData()
         {
             SalesQueryCriteriaViewModel criteria = new SalesQueryCriteriaViewModel();
+            criteria.BranchId = Convert.ToByte(cmbBranch.SelectedValue);
             if (txtFrom_Trans_Date.Checked == true)
                 criteria.From_Transaction_Date = $"{txtFrom_Trans_Date.Value.Day}-{txtFrom_Trans_Date.Value.Month}-{txtFrom_Trans_Date.Value.Year}";
             if (txtTo_Trans_Date.Checked == true)
@@ -71,6 +72,10 @@ namespace POS.Windows.Forms
 
         public void initForm(DateTime dtFromDate, DateTime dtToDate,int payStateId=1, int personId=0, string personName="")
         {
+            cmbBranch.ValueMember = "Branch_ID";
+            cmbBranch.DisplayMember = "Branch_Name";
+            cmbBranch.DataSource = General.BranchesDatatable;
+            cmbBranch.SelectedIndex = 0;
             mintTransactionTypeId = Convert.ToByte(VoucherTypeEnum.All);
             cmbPayStatusId.SelectedIndex = payStateId;
             cmbSalesType.SelectedIndex = 0;

@@ -755,6 +755,7 @@ namespace POS.WebApi.Repositories
             var qView = dbContext.SalesQuery.AsQueryable();
             DateTime fromDate= DateTime.MinValue;
             DateTime toDate= DateTime.MinValue;
+
             if (!string.IsNullOrEmpty(criteria.From_Transaction_Date))
             {
                 fromDate = General.convertToDate(criteria.From_Transaction_Date);
@@ -765,6 +766,8 @@ namespace POS.WebApi.Repositories
             }
             if (criteria != null)
             {
+                qView = qView.Where(r => r.Branch_ID.Equals(criteria.BranchId));
+
                 if (criteria.DebitSalesOnly)
                 {
                     qView = qView.Where(r => r.Customer_ID > 2);
